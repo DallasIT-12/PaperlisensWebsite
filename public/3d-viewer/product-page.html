@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dallas — Contoh Kotak Rokok Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #111318;
+            color: #e4e4e7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Layout ── */
+        .page {
+            display: flex;
+            min-height: 100vh
+        }
+
+        .viewer-col {
+            position: sticky;
+            top: 0;
+            width: 50%;
+            height: 100vh;
+            background: #0e0e0e;
+        }
+
+        .viewer-col iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block
+        }
+
+        .info-col {
+            width: 50%;
+            min-height: 100vh;
+            padding: 48px 40px 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            background: #111318;
+            overflow-y: auto;
+        }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb {
+            display: flex;
+            gap: 6px;
+            font-size: 12px;
+            color: #666;
+            align-items: center
+        }
+
+        .breadcrumb a {
+            color: #888;
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .breadcrumb a:hover {
+            color: #c9a84c
+        }
+
+        .breadcrumb .sep {
+            color: #444
+        }
+
+        /* ── Rating ── */
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px
+        }
+
+        .stars span {
+            font-size: 16px
+        }
+
+        .star-on {
+            color: #c9a84c
+        }
+
+        .star-off {
+            color: #333
+        }
+
+        .rating-text {
+            font-size: 13px;
+            color: #777
+        }
+
+        /* ── Product Name ── */
+        .product-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.5px
+        }
+
+        .product-subtitle {
+            font-size: 13px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 6px;
+            letter-spacing: 0.3px;
+            transition: color .3s;
+        }
+
+        /* ── SKU ── */
+        .sku-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        .sku {
+            font-size: 13px;
+            color: #666
+        }
+
+        .sku strong {
+            color: #999;
+            font-weight: 600
+        }
+
+        .badge-premium {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            background: rgba(201, 168, 76, 0.12);
+            color: #c9a84c;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+        }
+
+        /* ── Specs Grid ── */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .spec-card {
+            background: #1a1d24;
+            border: 1px solid #252830;
+            border-radius: 14px;
+            padding: 16px 18px;
+            transition: border-color .25s, background .25s;
+        }
+
+        .spec-card:hover {
+            border-color: rgba(201, 168, 76, 0.25);
+            background: #1e2128
+        }
+
+        .spec-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-bottom: 5px;
+        }
+
+        .spec-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #d4d4d8
+        }
+
+        /* ── Divider ── */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #252830, transparent)
+        }
+
+        /* ── Variant Selector ── */
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 14px;
+        }
+
+        .variant-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end
+        }
+
+        .swatch {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            border: 3px solid transparent;
+            cursor: pointer;
+            position: relative;
+            transition: all .25s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .swatch:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4)
+        }
+
+        .swatch.active {
+            border-color: #c9a84c;
+            box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.25), 0 4px 16px rgba(201, 168, 76, 0.2);
+        }
+
+        .swatch-label {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: 700;
+            color: #c9a84c;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity .2s;
+            letter-spacing: 0.5px;
+        }
+
+        .swatch.active .swatch-label {
+            opacity: 1
+        }
+
+        /* ── Quantity ── */
+        .qty-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .qty-input {
+            width: 130px;
+            padding: 13px 16px;
+            border-radius: 12px;
+            border: 1px solid #252830;
+            background: #1a1d24;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            outline: none;
+            font-family: inherit;
+            transition: border-color .25s;
+        }
+
+        .qty-input:focus {
+            border-color: #c9a84c
+        }
+
+        .qty-hint {
+            font-size: 12px;
+            color: #555
+        }
+
+        /* ── CTA ── */
+        .cta-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 17px 32px;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.25);
+            transition: all .3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.35)
+        }
+
+        .btn-primary svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor
+        }
+
+        .btn-secondary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 32px;
+            border-radius: 14px;
+            background: transparent;
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: #c9a84c;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all .3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(201, 168, 76, 0.08);
+            border-color: #c9a84c
+        }
+
+        .btn-secondary svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor
+        }
+
+        /* ── Trust ── */
+        .trust-row {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #666
+        }
+
+        .trust-icon {
+            font-size: 16px;
+            color: #c9a84c
+        }
+
+        /* ── Footer ── */
+        .page-footer {
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 11px;
+            color: #444;
+            border-top: 1px solid #1a1d24;
+        }
+
+        /* ── Mobile ── */
+        @media(max-width:900px) {
+            .page {
+                flex-direction: column
+            }
+
+            .viewer-col {
+                position: relative;
+                width: 100%;
+                height: 55vh;
+            }
+
+            .info-col {
+                width: 100%;
+                padding: 32px 20px 48px;
+            }
+
+            .product-name {
+                font-size: 1.6rem
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .swatch {
+                width: 44px;
+                height: 44px;
+                border-radius: 12px
+            }
+        }
+
+        @media(max-width:400px) {
+            .specs-grid {
+                grid-template-columns: 1fr
+            }
+
+            .info-col {
+                padding: 24px 16px 40px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <!-- LEFT: 3D Viewer -->
+        <div class="viewer-col">
+            <iframe id="viewer" src="cigarette-box.html" title="3D Cigarette Box Viewer" loading="lazy"
+                allow="accelerometer"></iframe>
+        </div>
+
+        <!-- RIGHT: Product Info -->
+        <div class="info-col">
+
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="/">Home</a><span class="sep">›</span>
+                <a href="/produk">Produk</a><span class="sep">›</span>
+                <span style="color:#c9a84c">Kotak Rokok</span>
+            </nav>
+
+            <!-- Rating -->
+            <div class="rating">
+                <div class="stars">
+                    <span class="star-on">★</span>
+                    <span class="star-on">★</span>
+                    <span class="star-on">★</span>
+                    <span class="star-on">★</span>
+                    <span class="star-off">★</span>
+                </div>
+                <span class="rating-text">4.8 / 5 &nbsp;·&nbsp; 127 ulasan</span>
+            </div>
+
+            <!-- Product Name -->
+            <div>
+                <h1 class="product-name">Dallas</h1>
+                <p class="product-subtitle" id="variantLabel">Varian: <strong>Red</strong></p>
+            </div>
+
+            <!-- SKU -->
+            <div class="sku-row">
+                <span class="sku">SKU: <strong>DLS-RKK-001</strong></span>
+                <span class="badge-premium">Premium</span>
+            </div>
+
+            <!-- Specs -->
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-label">Dimensi</div>
+                    <div class="spec-value">85 × 57 × 22 mm</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-label">Material</div>
+                    <div class="spec-value">Ivory 230gsm</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-label">Finishing</div>
+                    <div class="spec-value">Emboss + Hotprint</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-label">Min. Order</div>
+                    <div class="spec-value">1.000 pcs</div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Variant Selector -->
+            <div>
+                <div class="section-label">Pilih Varian Warna</div>
+                <div class="variant-row">
+                    <div class="swatch active" data-variant="red" style="background:#c41e1e"
+                        onclick="pickVariant('red',this)">
+                        <span class="swatch-label">Red</span>
+                    </div>
+                    <div class="swatch" data-variant="gold" style="background:#b8860b"
+                        onclick="pickVariant('gold',this)">
+                        <span class="swatch-label">Gold</span>
+                    </div>
+                    <div class="swatch" data-variant="white" style="background:#d8d0c0"
+                        onclick="pickVariant('white',this)">
+                        <span class="swatch-label">White</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Quantity -->
+            <div>
+                <div class="section-label">Jumlah (pcs)</div>
+                <div class="qty-wrap">
+                    <input class="qty-input" id="qty" type="number" value="1000" min="1000" step="500">
+                    <span class="qty-hint">Min. 1.000 pcs</span>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-stack">
+                <a class="btn-primary" id="btnOrder" href="#" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                        <path
+                            d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.214l-.252-.149-2.868.852.852-2.868-.178-.282A8 8 0 1112 20z" />
+                    </svg>
+                    Pesan Sekarang
+                </a>
+                <button class="btn-secondary" onclick="alert('Spesifikasi PDF akan segera tersedia.')">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                    </svg>
+                    Download Spesifikasi
+                </button>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Trust Badges -->
+            <div class="trust-row">
+                <div class="trust-item"><span class="trust-icon">✓</span> Garansi Cetak</div>
+                <div class="trust-item"><span class="trust-icon">✓</span> Ivory 230gsm</div>
+                <div class="trust-item"><span class="trust-icon">✓</span> Pengiriman Seluruh Indonesia</div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        © 2026 Dallas Printing — Percetakan Kemasan Premium
+    </footer>
+
+    <script>
+        const iframe = document.getElementById('viewer');
+        const variantLabel = document.getElementById('variantLabel');
+        const variantNames = { red: 'Red', gold: 'Gold', white: 'White' };
+
+        function pickVariant(variant, el) {
+            // Update swatches
+            document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+            el.classList.add('active');
+
+            // Update label
+            variantLabel.innerHTML = 'Varian: <strong>' + variantNames[variant] + '</strong>';
+
+            // Send to iframe
+            iframe.contentWindow.postMessage({ type: 'setVariant', variant: variant }, '*');
+        }
+
+        // WhatsApp link
+        function updateWaLink() {
+            const qty = document.getElementById('qty').value || 1000;
+            const activeVariant = document.querySelector('.swatch.active');
+            const vName = activeVariant ? variantNames[activeVariant.dataset.variant] : 'Red';
+            const msg = `Halo Dallas, saya tertarik dengan Kotak Rokok Dallas (DLS-RKK-001).\nVarian: ${vName}\nJumlah: ${qty} pcs\nBisa minta info harga?`;
+            document.getElementById('btnOrder').href = 'https://wa.me/6281260001487?text=' + encodeURIComponent(msg);
+        }
+
+        document.getElementById('qty').addEventListener('input', updateWaLink);
+        document.querySelectorAll('.swatch').forEach(s => s.addEventListener('click', () => setTimeout(updateWaLink, 50)));
+        updateWaLink();
+    </script>
+</body>
+
+</html>

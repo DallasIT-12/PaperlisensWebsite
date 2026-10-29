@@ -1,0 +1,433 @@
+{
+  "Common": {
+    "back": "Kembali",
+    "categoryNotFound": "Kategori Tidak Ditemukan",
+    "categoryNotFoundDesc": "Maaf, kami tidak dapat menemukan produk untuk kategori ini.",
+    "moreExamplesComing": "Lebih banyak contoh gambar untuk kategori ini akan segera ditambahkan.",
+    "relatedProducts": "Produk Cetak Lainnya"
+  },
+  "Home": {
+    "mainH1": "Percetakan Offset Dallas Kediri - Spesialis Cetak Kemasan & Box Custom"
+  },
+  "Navbar": {
+    "home": "Beranda",
+    "products": "Custom Box Rokok",
+    "produk_menu": "Produk",
+    "catalog": "Katalog",
+    "paperlisens": "Paperlisens",
+    "articles": "Artikel Kami",
+    "contact": "Kontak",
+    "about": "Tentang Kami",
+    "karir": "Karir",
+    "perusahaan": "Perusahaan",
+    "faq": "FAQ"
+  },
+  "TopBar": {
+    "address": "Jl. Kilisuci No.71, Setono Pande, Kec. Kota, Kota Kediri."
+  },
+  "CompanyProfile": {
+    "title": "Mengenali kami",
+    "description": "\"Dallas\" atau yang sering dikenal Percetakan Offset Dallas telah menjadi salah satu percetakan terbesar yang ada di Kediri Jawa Timur selama lebih dari 40 tahun sejak berdiri tahun 1983. Selama lebih dari 40 tahun Dallas menjadi yang \"terbesar\" dan telah menjadi pionir industri percetakan yang ada di Kediri. Menjadi yang \"terbesar\" bukan hanya soal kata-kata saja namun dibuktikan secara nyata dengan memiliki ribuan pelanggan dari berbagai sektor mulai dari Produk UMKM, CV, PT, dan Sektor Pemerintahan ini juga menjadi salah satu tantangan perusahaan kami dalam menjaga kualitas hasil cetak agar sesuai dengan keinginan pelanggan."
+  },
+  "AboutUs": {
+    "title": "Teknologi Modern untuk Hasil Presisi",
+    "description": "Kami menggunakan mesin terkini untuk menjamin ketajaman detail dan konsistensi warna di setiap lembar. Didukung tim operator yang ahli, Percetakan Dallas siap menangani berbagai kebutuhan cetak Anda dengan cepat, rapi, dan efisien.",
+    "visi": {
+      "title": "Visi Kami",
+      "desc": "Menjadi perusahaan percetakan terbesar di Indonesia"
+    },
+    "misi": {
+      "title": "Misi Kami",
+      "points": [
+        "Memperluas jangkauan distribusi ke seluruh wilayah Indonesia",
+        "Melakukan inovasi berkelanjutan",
+        "Memberikan kualitas cetak sesuai harapan",
+        "Membangun hubungan jangka panjang",
+        "Menciptakan lingkungan kerja yang aman, kreatif dan produktif"
+      ]
+    },
+    "produk": {
+      "title": "Portofolio Kami",
+      "desc": "Dallas terus berkomitmen untuk menghasilkan kemasan berkualitas untuk memenuhi kebutuhan kemasan konsumen. Portofolio kemasan produk kami saat ini mencakup kategori rokok dan non rokok.",
+      "rokok": {
+        "title": "Kategori Rokok",
+        "desc": "Kami menawarkan berbagai macam custom seperti kotak rokok, ambri, tipping, dan lidah."
+      },
+      "nonRokok": {
+        "title": "Kategori Non-Rokok",
+        "desc": "Kami menawarkan berbagai macam produk custom seperti segala jenis kotak, map, buku, kalender, brosur, paperbag, dan berbagai jenis kemasan makanan lain."
+      }
+    }
+  },
+  "WhyChoose": {
+    "title": "Mengapa Memilih Percetakan Offset Dallas?",
+    "subtitle": "Dedikasi pada Kualitas dan Ketepatan Waktu Sejak 1983.",
+    "points": {
+      "experience": {
+        "title": "Pengalaman 4 Dekade",
+        "desc": "Lebih dari 40 tahun berkarya memberikan kami keahlian mendalam untuk menangani berbagai kompleksitas proyek cetak Anda, dari skala kecil hingga produksi massal."
+      },
+      "quality": {
+        "title": "Standar Kualitas Presisi",
+        "desc": "Kami memadukan ketelitian operator berpengalaman dengan teknologi mesin terkini untuk memastikan warna yang akurat, potongan yang rapi, dan hasil yang konsisten."
+      },
+      "consultation": {
+        "title": "Mitra Konsultasi Solutif",
+        "desc": "Kami lebih dari sekadar tukang cetak. Tim kami siap memberikan saran ahli mengenai pemilihan bahan, efisiensi biaya, hingga finishing terbaik untuk produk Anda."
+      },
+      "punctuality": {
+        "title": "Jaminan Ketepatan Waktu",
+        "desc": "Dallas menjamin ketepatan Waktu yang telah ditetapkan diawal setelah selesai melakukan acc design dan melanjutkan proses cetak sesuai dengan prosedur yang berlaku."
+      },
+      "discussion": {
+        "title": "Terbuka untuk Diskusi",
+        "desc": "Dallas sangat terbuka jika bertukar pikiran melalui diskusi yang menuju pada kesepakatan Bersama. berdiskusi mengenai design, ukuran, bahan, hingga Harga. kami sangat terbuka jadi konsultasikan segera"
+      }
+    },
+    "cta": "Percayakan citra bisnis Anda pada ahlinya. Hubungi Percetakan Offset Dallas hari ini untuk konsultasi proyek Anda."
+  },
+  "PremiumQuality": {
+    "title": "Premium Quality",
+    "titleSpan": "Products",
+    "description": "Discover our exceptional range of cigarette and non-cigarette products",
+    "btnDownload": "Download Katalog",
+    "btnNonCigarette": "Non-Cigarette Products"
+  },
+  "FeaturedProducts": {
+    "title": "Portofolio Kami",
+    "subtitle": "Temukan berbagai solusi cetak berkualitas tinggi untuk kebutuhan bisnis Anda.",
+    "viewDetails": "Lihat Detail Selengkapnya"
+  },
+  "Materials": {
+    "title": "BEBERAPA BAHAN UNGGULAN KAMI",
+    "artPaper": {
+      "name": "ART PAPER",
+      "desc": "Kertas ini memiliki permukaan halus dan mengkilap, sehingga hasil cetak nya tajam dan berwarna cerah."
+    },
+    "ivoryPaper": {
+      "name": "IVORY PAPER",
+      "desc": "Jenis kertas kemasan glossy/doff yang memadukan art carton dan matte paper, elegan sekaligus kuat."
+    },
+    "tipping": {
+      "name": "Tipping",
+      "desc": "Kertas tipping khusus untuk filter rokok, sering digunakan untuk branding dengan cetakan logo atau garis."
+    },
+    "duplex": {
+      "name": "Duplex",
+      "desc": "Kertas karton daur ulang berlapis white liner, dengan satu sisi putih dan satu sisi abu-abu."
+    },
+    "kraftPaper": {
+      "name": "Kraft Paper",
+      "desc": "Kertas coklat alami yang sangat kuat, tahan lama dan serbaguna. Dihasilkan dari pemrosesan pulp kayu sulfat, menjadikannya pilihan ramah lingkungan yang klasik dan profesional."
+    }
+  },
+  "NonCigarette": {
+    "title": "Solusi Kemasan Berkualitas Sejak 2022",
+    "description": "Paperlisens memahami bahwa kemasan adalah wajah brand kuliner Anda. Sejak 2022, kami berdedikasi menyediakan papertray dan box takeaway terbaik melalui layanan online yang mudah dan cepat. Kepercayaan ribuan pelanggan di berbagai marketplace membuktikan komitmen kami dalam membantu bisnis Anda tampil lebih profesional.",
+    "productsTitle": "Portofolio Kami",
+    "card1": {
+      "title": "Solusi Cup Serbaguna & Trendi",
+      "desc": "Bukan sekadar wadah, tapi panggung untuk sajian kuliner Anda. Mulai dari Cup Toast untuk roti panggang, hingga berbagai varian cup (Tipe A, B, Sakura, dan Es) yang dirancang presisi. Bentuk tray yang estetik ini sangat pas untuk menyajikan aneka finger food, gorengan, atau jajanan kekinian agar terlihat lebih penuh, menarik, dan pastinya Instagramable."
+    },
+    "card2": {
+      "title": "Kotak Donat Berbagai Ukuran",
+      "desc": "Apapun kebutuhan porsi jualan Anda, kami punya kotaknya! Tersedia mulai dari ukuran personal (isi 1 & 2) hingga ukuran keluarga atau hampers (isi 3 & 6). Didesain dengan material yang kokoh untuk menjaga bentuk donat tetap sempurna dan cantik hingga ke tangan pelanggan."
+    },
+    "galleryTitle": "Featured Products on Paperlisens",
+    "btnBuy": "Beli di Paperlisens",
+    "btnViewAll": "Lihat Semua Produk di Paperlisens"
+  },
+  "Categories": {
+    "hampers": {
+      "title": "Kotak Hampers",
+      "desc": "Kemasan cetak premium dengan detail presisi, warna memukau, dan finishing elegan.",
+      "tags": {
+        "tag1": "Estetika",
+        "tag2": "Mewah"
+      }
+    },
+    "bakery": {
+      "title": "Kotak Bakery",
+      "desc": "Kemasan elegan dan fungsional untuk melindungi dan mempercantik produk bakery Anda.",
+      "tags": {
+        "tag1": "Elegan",
+        "tag2": "Food-Grade"
+      }
+    },
+    "rokok": {
+      "title": "Kotak Rokok",
+      "desc": "Cetak box rokok dengan detail grafis tajam dan material berkualitas tinggi.",
+      "tags": {
+        "tag1": "Tajam",
+        "tag2": "Konsisten"
+      }
+    },
+    "nasi": {
+      "title": "Kotak Nasi",
+      "desc": "Kotak nasi praktis dan higienis untuk berbagai acara dan kebutuhan katering.",
+      "tags": {
+        "tag1": "Praktis",
+        "tag2": "Higienis"
+      }
+    },
+    "buku": {
+      "title": "Buku",
+      "desc": "Teks jelas, gambar tajam, binding kuat untuk pengalaman membaca terbaik.",
+      "tags": {
+        "tag1": "Binding Kuat"
+      }
+    },
+    "kalender": {
+      "title": "Kalender",
+      "desc": "Desain menarik dan material terbaik, alat promosi fungsional.",
+      "tags": {
+        "tag1": "Fungsional"
+      }
+    },
+    "paperbag": {
+      "title": "Paperbag",
+      "desc": "Paperbag kuat, stylish, dan mencerminkan identitas brand.",
+      "tags": {
+        "tag1": "Premium",
+        "tag2": "Kuat"
+      }
+    },
+    "map": {
+      "title": "Map",
+      "desc": "Cetak map custom untuk kebutuhan kantor, seminar, atau acara. Profesional dan fungsional.",
+      "tags": {
+        "tag1": "Profesional",
+        "tag2": "Fungsional"
+      }
+    },
+    "brosur": {
+      "title": "Brosur",
+      "desc": "Informasi jelas, gambar memukau, dan lipatan presisi.",
+      "tags": {
+        "tag1": "Informatif"
+      }
+    }
+  },
+  "Footer": {
+    "description": "Produk kualitas premium untuk pelanggan yang cermat.",
+    "products": "Produk",
+    "catalog": "Katalog",
+    "paperlisens": "Paperlisens",
+    "contact": "Kontak",
+    "email": "Email",
+    "phone": "Telepon",
+    "karir": "Karir",
+    "copyright": "© 2024 Percetakan Dallas. Hak cipta dilindungi undang-undang."
+  },
+  "Paperlisens": {
+    "loading": "Memuat...",
+    "backToDallas": "Kembali ke Dallas",
+    "searchPlaceholder": "Cari produk di Paperlisens...",
+    "searchInCategory": "Cari di {category}...",
+    "ourCategories": "KATEGORI KAMI",
+    "recommendation": "REKOMENDASI",
+    "searchResults": "HASIL PENCARIAN",
+    "loadMore": "Muat Lebih Banyak",
+    "galleryTitle": "GALERI PRODUK LAINNYA",
+    "productNotFound": "Produk tidak ditemukan.",
+    "filter": "Filter",
+    "priceRange": "Kisaran Harga",
+    "minPrice": "Min",
+    "maxPrice": "Max",
+    "apply": "TERAPKAN",
+    "sortBy": "Urutkan",
+    "bestSeller": "Terlaris",
+    "priceLowHigh": "Harga: Rendah ke Tinggi",
+    "priceHighLow": "Harga: Tinggi ke Rendah",
+    "home": "Home",
+    "category": "Kategori",
+    "product": "Produk",
+    "noProductsFound": "Tidak ada produk ditemukan dengan kriteria tersebut.",
+    "rating": "Penilaian",
+    "sold": "Terjual",
+    "selectVariant": "Pilih Variasi:",
+    "quantity": "Kuantitas",
+    "available": "Tersedia {count} buah",
+    "addToCart": "Masukkan Keranjang",
+    "orderNow": "Pesan Sekarang",
+    "relatedProducts": "PRODUK LAIN DARI TOKO INI",
+    "youMayAlsoLike": "KAMU MUNGKIN JUGA SUKA",
+    "deskripsi": "Deskripsi",
+    "description": "Deskripsi",
+    "info": "Info",
+    "review": "Review",
+    "pengiriman": "Pengiriman",
+    "shipping": "Pengiriman",
+    "weight": "Berat",
+    "etalase": "Etalase",
+    "productNotFoundDetail": "Produk tidak ditemukan",
+    "returnToShop": "Kembali ke Toko",
+    "categories": {
+      "paperTray": "Paper Tray",
+      "boxTakeAway": "Box Take away",
+      "tempatPensil": "Tempat Pensil",
+      "boxCupcake": "Box Cupcake",
+      "lainLain": "Lain-lain"
+    },
+    "shippingInfo": {
+      "from": "Pengiriman dilakukan dari Kota Kediri.",
+      "couriers": "Kurir tersedia: JNE, J&T, SiCepat.",
+      "deadline": "Pesanan sebelum jam 14.00 dikirim di hari yang sama."
+    },
+    "reviewsCount": "dari {count} ulasan",
+    "dummyReview": "Barang bagus, sesuai deskripsi. Pengiriman cepat.",
+    "storefrontPremium": "Paperlisens Premium",
+    "featuredTag": "Unggulan",
+    "orderWa": "Pesan via WA"
+  },
+  "Maintenance": {
+    "title": "Sedang Pemeliharaan",
+    "description": "Kami sedang melakukan pembaruan sistem untuk memberikan layanan yang lebih baik. Kami akan segera kembali.",
+    "estimatedTime": "Estimasi Selesai Dalam:",
+    "hours": "Jam",
+    "contactWa": "Hubungi via WhatsApp",
+    "refresh": "Coba Segarkan"
+  },
+  "Promo": {
+    "title": "Promo Spesial UMKM!",
+    "subtitle": "Wujudkan Kemasan Impianmu Sekarang",
+    "description": "Dapatkan penawaran eksklusif <strong>Starterpack Cetak Kemasan Custom</strong> dengan harga terjangkau.",
+    "point1": "Gratis Konsultasi Desain",
+    "point2": "MOQ Rendah (Cocok untuk UMKM)",
+    "point3": "Kualitas Premium & Tahan Lama",
+    "cta": "Ambil Promo Sekarang",
+    "later": "Nanti saja",
+    "whatsappMessage": "Halo kak, saya tertarik dengan Promo Starterpack UMKM Cetak Custom"
+  },
+  "CustomBoxProducts": {
+    "pageTitle": "Custom Box Rokok",
+    "pageSubtitle": "Layanan percetakan kotak rokok custom dengan berbagai pilihan finishing premium",
+    "filterAll": "Semua",
+    "filterPremium": "Premium",
+    "filterStandard": "Standar",
+    "filterGeneral": "General",
+    "finishing": "Finishing",
+    "category": "Kategori",
+    "service": "Layanan",
+    "special": "Keterangan",
+    "minOrder": "Min. Order",
+    "chatWhatsApp": "Chat WhatsApp untuk Info Harga",
+    "whatsappMessage": "Halo, saya tertarik dengan produk {productName}. Bisa info harga?",
+    "products": {
+      "premiumFull": {
+        "name": "Premium Box - Emboss + Hotprint + Spot UV",
+        "description": "Kemasan premium dengan 3 finishing: emboss untuk efek timbul, hotprint foil metalik, dan spot UV untuk kilau di area tertentu."
+      },
+      "premiumEmbossHotprint": {
+        "name": "Premium Box - Emboss + Hotprint",
+        "description": "Kemasan premium dengan 2 finishing: emboss untuk efek timbul dan hotprint foil metalik untuk kilau emas/perak."
+      },
+      "premiumHotprintSpotUV": {
+        "name": "Premium Box - Hotprint + Spot UV",
+        "description": "Kemasan premium dengan 2 finishing: hotprint foil metalik dan spot UV untuk efek glossy kontras pada logo."
+      },
+      "standardEmboss": {
+        "name": "Standard Box - Finishing Emboss",
+        "description": "Kemasan standar dengan finishing emboss, membuat logo dan desain tampil timbul (arise) untuk kesan elegan."
+      },
+      "standardHotprint": {
+        "name": "Standard Box - Finishing Hotprint",
+        "description": "Kemasan standar dengan finishing hotprint, menghasilkan efek foil metalik kilau pada logo dan teks."
+      },
+      "standardSpotUV": {
+        "name": "Standard Box - Finishing Spot UV",
+        "description": "Kemasan standar dengan finishing spot UV, memberikan lapisan glossy mengkilap pada area tertentu seperti logo."
+      },
+      "standardUV": {
+        "name": "Standard Box - Finishing UV",
+        "description": "Kemasan standar dengan UV coating merata di seluruh permukaan, warna lebih cerah dan tahan gores."
+      },
+      "generalBox": {
+        "name": "General Box - Tanpa Finishing",
+        "description": "Kemasan kotak rokok standar tanpa finishing tambahan. Cocok untuk kebutuhan kemasan dasar dengan harga terjangkau."
+      }
+    }
+  },
+  "Pricing": {
+    "title": "Harga Minimal,",
+    "titleSpan": "Kualitas Maksimal",
+    "subtitle": "Solusi cetak profesional dengan efisiensi biaya yang mendukung akselerasi bisnis Anda.",
+    "startFrom": "Mulai",
+    "perPcs": "/pcs",
+    "consultation": "Konsultasi & Pesan Sekarang",
+    "whatsappMessage": "Halo kak, saya tertarik ingin konsultasi dan pesan {productName}",
+    "cards": {
+      "packaging": {
+        "title": "Custom Box & Packaging",
+        "price": "Rp 200",
+        "desc": "Box rokok, hampers, dan packaging produk dengan bahan berkualitas tinggi."
+      },
+      "culinary": {
+        "title": "Packaging Kuliner",
+        "price": "Rp 300",
+        "desc": "Paper tray, box donat, dan takeaway box food-grade yang higienis."
+      },
+      "publications": {
+        "title": "Buku & Publikasi",
+        "price": "Harga Grosir",
+        "desc": "Cetak buku, katalog, dan kalender dengan binding kuat & hasil presisi."
+      }
+    }
+  },
+  "TrustedBy": {
+    "title": "Dipercaya Oleh Brand Ternama"
+  },
+  "Career": {
+    "title": "Bergabung Bersama Kami",
+    "subtitle": "Bangun karir Anda bersama Percetakan Offset Dallas dan jadilah bagian dari perjalanan kami.",
+    "whyJoin": "Mengapa Bergabung dengan Dallas?",
+    "benefits": {
+      "growth": {
+        "title": "Pengembangan Karir",
+        "desc": "Kami mendukung pertumbuhan profesional Anda dengan memberikan kesempatan belajar dan berkembang setiap harinya."
+      },
+      "culture": {
+        "title": "Budaya Kerja Positif",
+        "desc": "Lingkungan kerja kami didesain untuk kolaboratif, suportif, dan menghargai ide-ide kreatif karyawan."
+      },
+      "stability": {
+        "title": "Stabilitas & Reputasi",
+        "desc": "Bergabung dengan perusahaan yang telah kokoh berdiri sejak 1983 dengan reputasi unggul di Kediri."
+      }
+    },
+    "openPositions": "Posisi yang Tersedia",
+    "noPositions": "Kami selalu mencari talenta terbaik! Silakan kirimkan CV Anda meskipun posisi yang relevan dengan Anda tidak tercantum di atas.",
+    "jobs": {
+      "hostLive": {
+        "title": "Host Live",
+        "type": "Penuh Waktu",
+        "desc": "Menjadi wajah brand perusahaan dalam sesi live streaming, mempromosikan produk, dan berinteraksi aktif dengan audiens untuk meningkatkan penjualan."
+      },
+      "bongkarMuat": {
+        "title": "Bongkar Muat",
+        "type": "Penuh Waktu",
+        "desc": "Bertanggung jawab atas proses bongkar muat barang produksi, memastikan keamanan barang, penyusunan yang rapi di gudang, dan efisiensi logistik."
+      }
+    },
+    "applyNow": "Kirim CV Anda",
+    "sendEmail": "Daftar Sekarang",
+    "sendWa": "Kirim via WhatsApp",
+    "whatsappMessage": "Halo Tim HRD Percetakan Dallas, saya ingin mengirimkan CV untuk melamar posisi ",
+    "formModal": {
+      "title": "Formulir Lamaran Kerja",
+      "name": "Nama Lengkap",
+      "namePlaceholder": "Contoh: Budi Santoso",
+      "phone": "Nomor WhatsApp",
+      "phonePlaceholder": "Contoh: 08123456789",
+      "address": "Alamat Lengkap",
+      "addressPlaceholder": "Masukkan alamat lengkap Anda...",
+      "age": "Usia",
+      "agePlaceholder": "Contoh: 25",
+      "education": "Pendidikan Terakhir",
+      "educationPlaceholder": "Contoh: SMA / S1 Ilmu Komunikasi",
+      "waNotice": "Pastikan Nomor WhatsApp yang Anda masukkan AKTIF. Panggilan interview bagi kandidat yang lolos seleksi akan dihubungi melalui WhatsApp.",
+      "submit": "Daftar Sekarang",
+      "cancel": "Batal"
+    }
+  }
+}

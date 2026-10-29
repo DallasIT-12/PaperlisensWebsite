@@ -1,0 +1,398 @@
+{
+  "Common": {
+    "back": "返回",
+    "categoryNotFound": "未找到类别",
+    "categoryNotFoundDesc": "抱歉，我们找不到此类别的产品。",
+    "moreExamplesComing": "此类别的更多示例将很快添加。",
+    "relatedProducts": "其他印刷产品"
+  },
+  "Navbar": {
+    "home": "首页",
+    "products": "定制烟盒",
+    "produk_menu": "产品",
+    "catalog": "目录",
+    "paperlisens": "Paperlisens",
+    "contact": "联系我们",
+    "about": "关于我们",
+    "karir": "职业",
+    "perusahaan": "公司",
+    "faq": "常见问题"
+  },
+  "TopBar": {
+    "address": "Jl. Kilisuci No.71, Setono Pande, Kec. Kota, Kota Kediri."
+  },
+  "CompanyProfile": {
+    "title": "认识我们",
+    "description": "“Dallas”或常被称为 Dallas Offset Printing，自 1983 年成立以来，40 多年来一直是东爪哇省谏义里（Kediri）最大的印刷厂之一。40 多年来，Dallas 已成为谏义里印刷业的先驱。成为“最大”不仅是口号，更通过服务各行各业的数千名客户（包括中小微企业、有限责任公司、股份有限公司和政府部门）得到了验证。这也是我们公司在确保印刷质量符合客户期望方面面临的挑战之一。"
+  },
+  "AboutUs": {
+    "title": "现代技术助力精准印刷",
+    "description": "我们使用先进的设备，确保每一张印刷品的细节清晰度和颜色一致性。在专业操作团队的支持下，Dallas 印刷致力于快速、整洁、高效地满足您的各种印刷需求。",
+    "visi": {
+      "title": "我们的愿景",
+      "desc": "成为印度尼西亚最大的印刷公司"
+    },
+    "misi": {
+      "title": "我们的使命",
+      "points": [
+        "将分销网络扩大至印度尼西亚全境",
+        "进行持续创新",
+        "提供符合预期的印刷质量",
+        "建立长期合作关系",
+        "创造安全、创意和高效的工作环境"
+      ]
+    },
+    "produk": {
+      "title": "我们的作品集",
+      "desc": "Dallas 始终致力于生产高质量包装，以满足消费者的需求。我们目前的产品组合包括卷烟和非卷烟类别。",
+      "rokok": {
+        "title": "卷烟类别",
+        "desc": "我们提供多种定制产品，如烟盒、ambri、吸嘴纸（tipping）和舌片。"
+      },
+      "nonRokok": {
+        "title": "非卷烟类别",
+        "desc": "我们提供各种定制产品，如各类盒子、文件夹、书籍、日历、手册、手提纸袋和各类食品包装。"
+      }
+    }
+  },
+  "WhyChoose": {
+    "title": "为什么选择 Dallas Offset Printing？",
+    "subtitle": "自1983年以来致力于质量和准时。",
+    "points": {
+      "experience": {
+        "title": "40年的经验",
+        "desc": "超过40年的工作经验赋予我们深厚的专业知识，能够处理您印刷项目的各种复杂性，从小规模到大规模生产。"
+      },
+      "quality": {
+        "title": "精准的质量标准",
+        "desc": "我们将经验丰富的操作员的精确度与最新的机器技术相结合，以确保准确的颜色、整洁的切割和一致的结果。"
+      },
+      "consultation": {
+        "title": "以解决方案为导向的咨询合作伙伴",
+        "desc": "我们不仅仅是印刷商。我们的团队随时准备在材料选择、成本效益以及产品的最佳表面处理方面提供专家建议。"
+      },
+      "punctuality": {
+        "title": "准时保证",
+        "desc": "我们通过珍惜您的时间来珍惜您的业务。通过结构化的工作流程管理，我们承诺按照约定的截止日期完成订单。"
+      }
+    },
+    "cta": "将您的商业形象托付给专家。立即联系 Dallas Offset Printing 咨询您的项目。"
+  },
+  "PremiumQuality": {
+    "title": "优质",
+    "titleSpan": "产品",
+    "description": "探索我们卓越的香烟和非香烟产品系列",
+    "btnDownload": "下载目录",
+    "btnNonCigarette": "非香烟产品"
+  },
+  "FeaturedProducts": {
+    "title": "我们的作品集",
+    "subtitle": "为您的业务需求寻找各种高质量的印刷解决方案。",
+    "viewDetails": "查看详细信息"
+  },
+  "Materials": {
+    "title": "我们的一些特色材料",
+    "artPaper": {
+      "name": "铜版纸 (ART PAPER)",
+      "desc": "这种纸表面光滑有光泽，因此印刷效果清晰，色彩鲜艳。"
+    },
+    "ivoryPaper": {
+      "name": "白卡纸 (IVORY PAPER)",
+      "desc": "一种结合了艺术纸板和哑光纸的光滑/亚光包装纸，既优雅又坚固。"
+    },
+    "tipping": {
+      "name": "接装纸 (Tipping)",
+      "desc": "香烟滤嘴专用接装纸，通常用于带有徽标印刷或线条的品牌推广。"
+    },
+    "duplex": {
+      "name": "灰底白板纸 (Duplex)",
+      "desc": "表面覆盖白色衬里的再生纸板，一面是白色，一面是灰色。"
+    }
+  },
+  "NonCigarette": {
+    "title": "自2022年以来的优质包装解决方案",
+    "description": "Paperlisens 明白包装是您烹饪品牌的门面。自2022年以来，我们致力于通过简单快捷的在线服务提供最好的纸托盘和外卖盒。成千上万客户在各个市场的信任证明了我们要帮助您的企业看起来更专业的承诺。",
+    "productsTitle": "我们的作品集",
+    "card1": {
+      "title": "多功能时尚杯子解决方案",
+      "desc": "不仅仅是一个容器，更是您美食的舞台。从用于烤面包的 Cup Toast 到各种杯子变体（A型、B型、Sakura和Ice），设计精准。这种美观的托盘形状非常适合盛放各种手指食物、油炸食品或现代小吃，使它们看起来更丰满、更有吸引力，当然也更适合拍照发 Instagram。"
+    },
+    "card2": {
+      "title": "各种尺寸的甜甜圈盒",
+      "desc": "无论您的销售份量需求如何，我们要有合适的盒子！提供从个人尺寸（1和2个装）到家庭或礼篮尺寸（3和6个装）。采用坚固材料设计，保持甜甜圈形状完美美观，直到送达客户手中。"
+    },
+    "galleryTitle": "Paperlisens 上的特色产品",
+    "btnBuy": "在 Paperlisens 购买",
+    "btnViewAll": "查看 Paperlisens 上的所有产品"
+  },
+  "Categories": {
+    "hampers": {
+      "title": "礼篮盒",
+      "desc": "具有精确细节、令人惊叹的色彩和优雅表面处理的优质印刷包装。",
+      "tags": {
+        "tag1": "美观",
+        "tag2": "奢华"
+      }
+    },
+    "bakery": {
+      "title": "烘焙盒",
+      "desc": "优雅实用的包装，保护和美化您的烘焙产品。",
+      "tags": {
+        "tag1": "优雅",
+        "tag2": "食品级"
+      }
+    },
+    "rokok": {
+      "title": "烟盒",
+      "desc": "具有清晰图形细节和高质量材料的印刷烟盒。",
+      "tags": {
+        "tag1": "清晰",
+        "tag2": "一致"
+      }
+    },
+    "nasi": {
+      "title": "饭盒",
+      "desc": "适用于各种活动和餐饮需求的实用卫生饭盒。",
+      "tags": {
+        "tag1": "实用",
+        "tag2": "卫生"
+      }
+    },
+    "buku": {
+      "title": "书籍",
+      "desc": "清晰的文字，清晰的图像，坚固的装订，带来最佳的阅读体验。",
+      "tags": {
+        "tag1": "坚固装订"
+      }
+    },
+    "kalender": {
+      "title": "日历",
+      "desc": "极具吸引力的设计和最好的材料，功能性的促销工具。",
+      "tags": {
+        "tag1": "功能性"
+      }
+    },
+    "paperbag": {
+      "title": "纸袋",
+      "desc": "坚固时尚的纸袋，体现品牌形象。",
+      "tags": {
+        "tag1": "优质",
+        "tag2": "坚固"
+      }
+    },
+    "map": {
+      "title": "文件夹",
+      "desc": "用于办公需求、研讨会或活动的定制印刷文件夹。专业且实用。",
+      "tags": {
+        "tag1": "专业",
+        "tag2": "实用"
+      }
+    },
+    "brosur": {
+      "title": "宣传册",
+      "desc": "清晰的信息，令人惊叹的图像和精确的折叠。",
+      "tags": {
+        "tag1": "信息丰富"
+      }
+    }
+  },
+  "Footer": {
+    "description": "为独具慧眼的客户提供优质产品。",
+    "products": "产品",
+    "catalog": "目录",
+    "paperlisens": "Paperlisens",
+    "contact": "联系我们",
+    "email": "电子邮件",
+    "phone": "电话",
+    "karir": "职业",
+    "copyright": "© 2024 Percetakan Dallas. 保留所有权利。"
+  },
+  "Paperlisens": {
+    "loading": "加载中...",
+    "backToDallas": "回到 Dallas",
+    "searchPlaceholder": "在 Paperlisens 中搜索产品...",
+    "searchInCategory": "在 {category} 中搜索...",
+    "ourCategories": "我们的类别",
+    "recommendation": "推荐",
+    "searchResults": "搜索结果",
+    "loadMore": "加载更多",
+    "galleryTitle": "其他产品图库",
+    "productNotFound": "未找到产品。",
+    "filter": "筛选",
+    "priceRange": "价格范围",
+    "minPrice": "最低",
+    "maxPrice": "最高",
+    "apply": "应用",
+    "sortBy": "排序",
+    "bestSeller": "最畅销",
+    "priceLowHigh": "价格：从低到高",
+    "priceHighLow": "价格：从高到低",
+    "home": "首页",
+    "category": "类别",
+    "product": "产品",
+    "noProductsFound": "未找到符合这些标准的产品。",
+    "rating": "评分",
+    "sold": "已售",
+    "selectVariant": "选择变体：",
+    "quantity": "数量",
+    "available": "现有 {count} 件",
+    "addToCart": "加入购物车",
+    "orderNow": "立即订购",
+    "relatedProducts": "此商店的其他产品",
+    "youMayAlsoLike": "您可能也喜欢",
+    "deskripsi": "描述",
+    "description": "描述",
+    "info": "信息",
+    "review": "评价",
+    "pengiriman": "配送",
+    "shipping": "配送",
+    "weight": "重量",
+    "etalase": "店面",
+    "productNotFoundDetail": "未找到产品",
+    "returnToShop": "返回商店",
+    "categories": {
+      "paperTray": "纸托盘",
+      "boxTakeAway": "外带盒",
+      "tempatPensil": "笔盒",
+      "boxCupcake": "纸杯蛋糕盒",
+      "lainLain": "其他",
+      "kartonGelombang": "瓦楞纸箱"
+    },
+    "shippingInfo": {
+      "from": "从 Kediri 市发货。",
+      "couriers": "可用快递：JNE, J&T, SiCepat.",
+      "deadline": "下午 14:00 之前的订单当天发货。"
+    },
+    "reviewsCount": "来自 {count} 条评价",
+    "dummyReview": "很棒的产品，符合描述。发货快。",
+    "storefrontPremium": "Paperlisens 优选",
+    "featuredTag": "精选",
+    "orderWa": "WhatsApp 下单"
+  },
+  "Promo": {
+    "title": "中小微企业特别优惠！",
+    "subtitle": "立即实现您的梦想包装",
+    "description": "以实惠的价格获得<strong>定制包装入门包</strong>的独家优惠。",
+    "point1": "免费设计咨询",
+    "point2": "低起订量（适合中小微企业）",
+    "point3": "优质且耐用",
+    "cta": "立即获取优惠",
+    "later": "稍后再说",
+    "whatsappMessage": "你好，我对中小微企业定制包装入门包优惠感兴趣"
+  },
+  "CustomBoxProducts": {
+    "pageTitle": "定制烟盒",
+    "pageSubtitle": "定制烟盒印刷服务，多种高级表面处理选择",
+    "filterAll": "全部",
+    "filterPremium": "高级",
+    "filterStandard": "标准",
+    "filterGeneral": "普通",
+    "finishing": "表面处理",
+    "category": "类别",
+    "service": "服务",
+    "special": "说明",
+    "minOrder": "最低订购量",
+    "chatWhatsApp": "WhatsApp 咨询价格",
+    "whatsappMessage": "你好，我对{productName}感兴趣。能告诉我价格吗？",
+    "products": {
+      "premiumFull": {
+        "name": "高级套装 - 压花 + 烫印 + 局部UV",
+        "description": "高级包装，三种表面处理：压花凸起效果、金属箔烫印、以及特定区域的UV光泽。"
+      },
+      "premiumEmbossHotprint": {
+        "name": "高级套装 - 压花 + 烫印",
+        "description": "高级包装，两种表面处理：压花凸起效果和金属箔烫印金银光泽。"
+      },
+      "premiumHotprintSpotUV": {
+        "name": "高级套装 - 烫印 + 局部UV",
+        "description": "高级包装，两种表面处理：金属箔烫印和局部UV光泽对比效果。"
+      },
+      "standardEmboss": {
+        "name": "标准盒 - 压花处理",
+        "description": "标准包装，压花处理使标志和设计呈凸起效果，展现优雅印象。"
+      },
+      "standardHotprint": {
+        "name": "标准盒 - 烫印处理",
+        "description": "标准包装，烫印处理在标志和文字上产生金属箔光泽效果。"
+      },
+      "standardSpotUV": {
+        "name": "标准盒 - 局部UV处理",
+        "description": "标准包装，局部UV处理在标志等特定区域施加光泽层。"
+      },
+      "standardUV": {
+        "name": "标准盒 - UV涂层",
+        "description": "标准包装，UV涂层均匀覆盖整个表面，颜色更鲜艳且耐刮擦。"
+      },
+      "generalBox": {
+        "name": "普通盒 - 无表面处理",
+        "description": "标准烟盒包装，无额外表面处理。适合基本包装需求，价格实惠。"
+      }
+    }
+  },
+  "Pricing": {
+    "title": "最低价格，",
+    "titleSpan": "最高质量",
+    "subtitle": "具有成本效益的专业印刷解决方案，支持您的业务加速。",
+    "startFrom": "起价",
+    "perPcs": "/件",
+    "consultation": "立即咨询并订购",
+    "whatsappMessage": "你好，我有兴趣咨询并订购 {productName}",
+    "cards": {
+      "packaging": {
+        "title": "定制盒子和包装",
+        "price": "印尼盾 200",
+        "desc": "采用优质材料制成的烟盒、礼篮和产品包装。"
+      },
+      "culinary": {
+        "title": "烹饪包装",
+        "price": "印尼盾 300",
+        "desc": "卫生食品级纸托盘、甜甜圈盒和外卖盒。"
+      },
+      "publications": {
+        "title": "书籍和出版物",
+        "price": "批发价",
+        "desc": "书籍印刷、目录和日历，装订牢固，结果精确。"
+      }
+    }
+  },
+  "TrustedBy": {
+    "title": "深受知名品牌信赖"
+  },
+  "Career": {
+    "title": "加入我们的团队",
+    "subtitle": "与 Dallas Offset Printing 共筑您的职业生涯，成为我们旅程的一部分。",
+    "whyJoin": "为什么加入 Dallas？",
+    "benefits": {
+      "growth": {
+        "title": "职业发展",
+        "desc": "我们通过提供每天学习和发展的机会来支持您的专业成长。"
+      },
+      "culture": {
+        "title": "积极的工作文化",
+        "desc": "我们的工作环境旨在协作、支持并赞赏创意想法。"
+      },
+      "stability": {
+        "title": "稳定性与声誉",
+        "desc": "加入一家自1983年稳固成立、在 Kediri 享有盛誉的公司。"
+      }
+    },
+    "openPositions": "空缺职位",
+    "noPositions": "我们一直在寻找顶尖人才！即使上面没有列出您期望的职位，也欢迎发送您的志愿简历。",
+    "jobs": {
+      "hostLive": {
+        "title": "直播主播 (Host Live)",
+        "type": "全职",
+        "desc": "在直播会话中成为公司品牌的面孔，推广产品，并与观众积极互动以提高销售额。"
+      },
+      "bongkarMuat": {
+        "title": "装卸工 (Bongkar Muat)",
+        "type": "全职",
+        "desc": "负责生产货物的装卸过程，确保货物安全，在仓库中整齐排列，并提高物流效率。"
+      }
+    },
+    "applyNow": "提交您的简历",
+    "sendEmail": "通过电子邮件发送",
+    "sendWa": "通过 WhatsApp 发送",
+    "whatsappMessage": "您好 Dallas Printing 人事团队，我想提交我的简历以申请该职位："
+  }
+}

@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<!--
+  Required file structure (Next.js public/ folder):
+  public/
+  └── 3d-viewer/
+      ├── cigarette-box.html   ← this file
+      └── cigarette_box.glb    ← GLB model (same folder)
+-->
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Box Viewer</title>
+  <link rel="preload" href="cigarette_box.glb" as="fetch" type="model/gltf-binary" crossorigin>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:wght@300;500&display=swap');
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background: #0e0e0e;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      overflow: hidden
+    }
+
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: linear-gradient(to bottom, rgba(14, 14, 14, .95), transparent);
+      z-index: 20;
+      pointer-events: none
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      letter-spacing: .3em;
+      color: #c9a84c
+    }
+
+    .subtitle {
+      font-size: .5rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .28);
+      margin-top: 2px
+    }
+
+    .badge {
+      font-size: .48rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border: 1px solid rgba(201, 168, 76, .3);
+      color: rgba(201, 168, 76, .6)
+    }
+
+    .specs {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 20;
+      pointer-events: none
+    }
+
+    .spec {
+      border-left: 2px solid rgba(201, 168, 76, .22);
+      padding-left: 10px
+    }
+
+    .spec .lbl {
+      font-size: .44rem;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: #c9a84c;
+      opacity: .75
+    }
+
+    .spec .val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .75)
+    }
+
+    .hint {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .48rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .18);
+      white-space: nowrap;
+      z-index: 20;
+      pointer-events: none;
+      bottom: 80px
+    }
+
+    .controls {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 20
+    }
+
+    .btn {
+      padding: 7px 15px;
+      border: 1px solid rgba(201, 168, 76, .3);
+      background: rgba(14, 14, 14, .88);
+      color: rgba(201, 168, 76, .8);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .54rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .2s;
+      backdrop-filter: blur(10px);
+      border-radius: 2px;
+      white-space: nowrap
+    }
+
+    .btn:hover,
+    .btn.on {
+      background: rgba(201, 168, 76, .16);
+      border-color: #c9a84c;
+      color: #e8c87a
+    }
+
+    .logo-panel {
+      position: fixed;
+      left: 20px;
+      bottom: 22px;
+      z-index: 25;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-start
+    }
+
+    .logo-panel label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 13px;
+      border: 1px dashed rgba(201, 168, 76, .4);
+      background: rgba(14, 14, 14, .88);
+      color: rgba(201, 168, 76, .7);
+      font-size: .52rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .2s;
+      backdrop-filter: blur(10px);
+      border-radius: 2px
+    }
+
+    .logo-panel label:hover {
+      border-color: #c9a84c;
+      color: #e8c87a;
+      background: rgba(201, 168, 76, .1)
+    }
+
+    .logo-panel input[type=file] {
+      display: none
+    }
+
+    .logo-preview {
+      width: 80px;
+      height: 36px;
+      object-fit: contain;
+      border: 1px solid rgba(201, 168, 76, .2);
+      border-radius: 2px;
+      background: rgba(14, 14, 14, .6);
+      display: none
+    }
+
+    .logo-clear {
+      font-size: .46rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255, 100, 100, .6);
+      cursor: pointer;
+      padding: 3px 8px;
+      border: 1px solid rgba(255, 100, 100, .2);
+      border-radius: 2px;
+      background: transparent;
+      display: none;
+      transition: all .2s
+    }
+
+    .logo-clear:hover {
+      color: #ff6666;
+      border-color: #ff6666
+    }
+
+    .fab {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c9a84c, #e8c87a);
+      border: none;
+      color: #0e0e0e;
+      font-size: 1.4rem;
+      cursor: pointer;
+      z-index: 30;
+      box-shadow: 0 4px 24px rgba(201, 168, 76, .45);
+      align-items: center;
+      justify-content: center;
+      transition: transform .25s, background .2s;
+      font-weight: bold
+    }
+
+    .fab.open {
+      transform: rotate(45deg)
+    }
+
+    .drawer {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(8, 8, 8, .97);
+      border-top: 1px solid rgba(201, 168, 76, .25);
+      z-index: 28;
+      transform: translateY(100%);
+      transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+      padding: 14px 14px 36px;
+      backdrop-filter: blur(24px)
+    }
+
+    .drawer.open {
+      transform: translateY(0)
+    }
+
+    .drawer-title {
+      font-size: .45rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(201, 168, 76, .45);
+      margin-bottom: 11px;
+      text-align: center
+    }
+
+    .drawer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin-bottom: 12px
+    }
+
+    .drawer .btn {
+      padding: 11px 4px;
+      font-size: .48rem;
+      letter-spacing: .08em;
+      width: 100%;
+      text-align: center
+    }
+
+    .drawer-upload {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding-top: 12px
+    }
+
+    .drawer-upload label {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px;
+      border: 1px dashed rgba(201, 168, 76, .35);
+      background: rgba(201, 168, 76, .06);
+      color: rgba(201, 168, 76, .7);
+      font-size: .48rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px
+    }
+
+    .drawer-upload label:hover {
+      border-color: #c9a84c;
+      color: #e8c87a
+    }
+
+    .drawer-upload input[type=file] {
+      display: none
+    }
+
+    #mobileLogoPreview {
+      width: 56px;
+      height: 26px;
+      object-fit: contain;
+      border: 1px solid rgba(201, 168, 76, .2);
+      border-radius: 2px;
+      background: rgba(14, 14, 14, .6);
+      display: none
+    }
+
+    #mobileLogoClear {
+      font-size: .44rem;
+      padding: 5px 8px;
+      border: 1px solid rgba(255, 100, 100, .25);
+      border-radius: 2px;
+      background: transparent;
+      color: rgba(255, 100, 100, .6);
+      cursor: pointer;
+      display: none;
+      white-space: nowrap
+    }
+
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #0e0e0e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: opacity .5s ease
+    }
+
+    #loader.out {
+      opacity: 0;
+      pointer-events: none
+    }
+
+    .ring {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(201, 168, 76, .12);
+      border-top-color: #c9a84c;
+      animation: spin .9s linear infinite
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .progress-wrap {
+      width: 160px;
+      height: 2px;
+      background: rgba(255, 255, 255, .07);
+      margin-top: 18px;
+      border-radius: 1px;
+      overflow: hidden
+    }
+
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #c9a84c, #e8c87a);
+      transition: width .2s;
+      border-radius: 1px
+    }
+
+    .load-txt {
+      margin-top: 10px;
+      font-size: .52rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(201, 168, 76, .5)
+    }
+
+    #load-pct {
+      color: rgba(201, 168, 76, .8);
+      margin-left: 4px
+    }
+
+    .load-error {
+      color: #ff6666;
+      font-size: .6rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-top: 14px;
+      text-align: center;
+      max-width: 260px;
+      line-height: 1.6;
+      display: none
+    }
+
+    @media(max-width:700px) {
+
+      .controls,
+      .logo-panel,
+      .specs,
+      .badge {
+        display: none
+      }
+
+      .hint {
+        bottom: 24px
+      }
+
+      .fab {
+        display: flex
+      }
+
+      .drawer {
+        display: block
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="loader">
+    <div class="ring"></div>
+    <div class="progress-wrap">
+      <div id="progress-bar"></div>
+    </div>
+    <div class="load-txt">Memuat model <span id="load-pct">0%</span></div>
+    <div class="load-error" id="load-error"></div>
+  </div>
+
+  <canvas id="c"></canvas>
+
+  <div class="top-bar">
+    <div>
+      <div class="logo">PackViz Studio</div>
+      <div class="subtitle">3D Packaging Viewer · GLTF 2.0</div>
+    </div>
+    <div class="badge">PBR · Real-time</div>
+  </div>
+
+  <div class="specs">
+    <div class="spec">
+      <div class="lbl">Dimensi</div>
+      <div class="val">85×57×22mm</div>
+    </div>
+    <div class="spec">
+      <div class="lbl">Mesh</div>
+      <div class="val">3 Part</div>
+    </div>
+    <div class="spec">
+      <div class="lbl">Material</div>
+      <div class="val">PBR Standard</div>
+    </div>
+    <div class="spec">
+      <div class="lbl">Tekstur</div>
+      <div class="val">6 Layers</div>
+    </div>
+    <div class="spec">
+      <div class="lbl">Format</div>
+      <div class="val">GLB Binary</div>
+    </div>
+  </div>
+
+  <div class="hint">Drag · Scroll zoom · Klik untuk interaksi</div>
+
+  <div class="controls">
+    <button class="btn on" id="btnReset" onclick="resetCam()">⟳ Reset</button>
+    <button class="btn" id="btnLid" onclick="toggleLid()">▣ Buka Lid</button>
+    <button class="btn on" id="btnAuto" onclick="toggleAuto()">↻ Auto Putar</button>
+    <button class="btn" id="btnWire" onclick="toggleWire()">⊡ Wireframe</button>
+    <button class="btn" id="btnExplode" onclick="toggleExplode()">⊕ Explode</button>
+  </div>
+
+  <div class="logo-panel">
+    <label>
+      ⬆ Upload Logo
+      <input type="file" id="logoInput" accept="image/*" onchange="handleLogo(this)">
+    </label>
+    <img id="logoPreview" class="logo-preview" alt="preview">
+    <button class="logo-clear" id="logoClear" onclick="clearLogo()">✕ Hapus Logo</button>
+  </div>
+
+  <button class="fab" id="fab" onclick="toggleDrawer()">+</button>
+
+  <div class="drawer" id="drawer">
+    <div class="drawer-title">Kontrol · Viewer</div>
+    <div class="drawer-grid">
+      <button class="btn on" id="mBtnReset" onclick="resetCam();closeDrawer()">⟳ Reset</button>
+      <button class="btn" id="mBtnLid" onclick="toggleLid()">▣ Buka Lid</button>
+      <button class="btn on" id="mBtnAuto" onclick="toggleAuto()">↻ Putar</button>
+      <button class="btn" id="mBtnWire" onclick="toggleWire()">⊡ Wire</button>
+      <button class="btn" id="mBtnExplode" onclick="toggleExplode()">⊕ Explode</button>
+    </div>
+    <div class="drawer-upload">
+      <label>
+        ⬆ Upload Logo
+        <input type="file" id="mLogoInput" accept="image/*" onchange="handleLogo(this)">
+      </label>
+      <img id="mobileLogoPreview" alt="logo">
+      <button id="mobileLogoClear" onclick="clearLogo()">✕ Hapus</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // ══ MOBILE DRAWER ════════════════════════════════════
+    let drawerOpen = false;
+    function toggleDrawer() {
+      drawerOpen = !drawerOpen;
+      document.getElementById('fab').classList.toggle('open', drawerOpen);
+      document.getElementById('fab').textContent = drawerOpen ? '✕' : '+';
+      document.getElementById('drawer').classList.toggle('open', drawerOpen);
+    }
+    function closeDrawer() {
+      drawerOpen = false;
+      document.getElementById('fab').classList.remove('open');
+      document.getElementById('fab').textContent = '+';
+      document.getElementById('drawer').classList.remove('open');
+    }
+
+    // ══ VARIANTS ═════════════════════════════════════════
+    const VARIANTS = {
+      red: { primary: '#c41e1e', dark: '#8a0f0f', text: '#ffffff', accent: '#c9a84c', name: 'SUNRISE' },
+      gold: { primary: '#b8860b', dark: '#7a5800', text: '#ffffff', accent: '#f5e070', name: 'SUNRISE' },
+      white: { primary: '#d8d0c0', dark: '#a89880', text: '#2a2a2a', accent: '#c9a84c', name: 'SUNRISE' },
+    };
+    let currentVariant = 'red';
+
+    // ══ LOGO STATE ═══════════════════════════════════════
+    let logoImg = null;
+
+    function handleLogo(input) {
+      const file = input.files[0]; if (!file) return;
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        logoImg = img;
+        ['logoPreview', 'mobileLogoPreview'].forEach(id => { const e = document.getElementById(id); if (e) { e.src = url; e.style.display = 'block'; } });
+        ['logoClear', 'mobileLogoClear'].forEach(id => { const e = document.getElementById(id); if (e) e.style.display = 'inline-block'; });
+        rebuildMaterials();
+      };
+      img.src = url;
+    }
+
+    function clearLogo() {
+      logoImg = null;
+      ['logoPreview', 'mobileLogoPreview'].forEach(id => { const e = document.getElementById(id); if (e) { e.src = ''; e.style.display = 'none'; } });
+      ['logoClear', 'mobileLogoClear'].forEach(id => { const e = document.getElementById(id); if (e) e.style.display = 'none'; });
+      ['logoInput', 'mLogoInput'].forEach(id => { const e = document.getElementById(id); if (e) e.value = ''; });
+      rebuildMaterials();
+    }
+
+    // ══ TEXTURES ═════════════════════════════════════════
+    // FIX: flipY=true (Three.js default for CanvasTexture)
+    // NO manual UV flip in buffer — let Three.js handle it
+    function makeTex(fn, w = 512, h = 512) {
+      const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+      fn(cv.getContext('2d'), w, h);
+      const t = new THREE.CanvasTexture(cv);
+      t.encoding = THREE.sRGBEncoding;
+      t.flipY = true;
+      return t;
+    }
+
+    function drawLogo(ctx, x, y, maxW, maxH) {
+      if (!logoImg) return;
+      const ratio = Math.min(maxW / logoImg.width, maxH / logoImg.height);
+      const dw = logoImg.width * ratio, dh = logoImg.height * ratio;
+      ctx.save(); ctx.globalAlpha = 0.95;
+      ctx.drawImage(logoImg, x + (maxW - dw) / 2, y + (maxH - dh) / 2, dw, dh);
+      ctx.restore();
+    }
+
+    function texFront(v) {
+      return makeTex((ctx, W, H) => {
+        // Mirror horizontally so text reads left-to-right on front face
+        ctx.save();
+        ctx.translate(W, 0);
+        ctx.scale(-1, 1);
+        const g = ctx.createLinearGradient(0, 0, 0, H);
+        g.addColorStop(0, v.primary); g.addColorStop(1, v.dark);
+        ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle = v.accent; ctx.fillRect(0, 0, W, H * 0.10);
+        ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.fillRect(0, H * 0.035, W, H * 0.018);
+        if (logoImg) {
+          drawLogo(ctx, W * 0.1, H * 0.13, W * 0.8, H * 0.42);
+          ctx.fillStyle = 'rgba(255,255,255,0.5)';
+          ctx.font = `${W * 0.05}px Montserrat,sans-serif`;
+          ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+          ctx.fillText('PREMIUM BLEND', W / 2, H * 0.63);
+        } else {
+          ctx.fillStyle = v.text;
+          ctx.font = `bold ${W * 0.17}px Georgia,serif`;
+          ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 10;
+          ctx.fillText(v.name, W / 2, H * 0.40);
+          ctx.shadowBlur = 0;
+          ctx.fillStyle = 'rgba(255,255,255,0.65)';
+          ctx.font = `${W * 0.055}px Montserrat,sans-serif`;
+          ctx.textBaseline = 'alphabetic';
+          ctx.fillText('PREMIUM BLEND', W / 2, H * 0.565);
+        }
+        ctx.fillStyle = v.accent; ctx.fillRect(W * 0.1, H * 0.68, W * 0.8, 2);
+        ctx.fillStyle = '#ffffff'; ctx.fillRect(0, H * 0.74, W, H * 0.26);
+        ctx.fillStyle = v.dark;
+        ctx.font = `bold ${W * 0.072}px Georgia,serif`;
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText('FULL FLAVOR', W / 2, H * 0.89);
+        ctx.restore();
+      });
+    }
+
+    function texSide(v) {
+      return makeTex((ctx, W, H) => {
+        ctx.fillStyle = v.dark; ctx.fillRect(0, 0, W, H);
+        for (let i = 0; i < 180; i++) { ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.05})`; ctx.fillRect(Math.random() * W, Math.random() * H, 2, 2); }
+        ctx.save(); ctx.translate(W / 2, H / 2); ctx.rotate(-Math.PI / 2);
+        if (logoImg) {
+          drawLogo(ctx, -H * 0.18, -H * 0.09, H * 0.36, H * 0.18);
+        } else {
+          ctx.fillStyle = 'rgba(255,255,255,0.15)';
+          ctx.font = `bold ${H * 0.09}px Georgia,serif`;
+          ctx.textAlign = 'center'; ctx.fillText(v.name, 0, 0);
+        }
+        ctx.restore();
+      });
+    }
+
+    function texBack(v) {
+      return makeTex((ctx, W, H) => {
+        ctx.fillStyle = v.dark; ctx.fillRect(0, 0, W, H);
+        const mx = W * 0.08, my = H * 0.10, mw = W * 0.84, mh = H * 0.58;
+        ctx.fillStyle = '#ffffff'; ctx.fillRect(mx, my, mw, mh);
+        ctx.fillStyle = '#cc0000'; ctx.font = `bold ${W * 0.065}px Arial`;
+        ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+        ctx.fillText('PERINGATAN', mx + 10, my + H * 0.055);
+        ctx.fillStyle = '#aaa';
+        for (let i = 0; i < 6; i++)ctx.fillRect(mx + 10, my + H * 0.09 + i * H * 0.07, mw - 20, 5);
+        ctx.fillStyle = '#333';
+        for (let i = 0; i < 28; i++) { const bw = (i % 3 === 0) ? 3 : 1.5; ctx.fillRect(mx + 12 + i * 9, H * 0.82, bw, H * 0.09); }
+      });
+    }
+
+    function texTopBot(v) {
+      return makeTex((ctx, W, H) => {
+        ctx.fillStyle = v.dark; ctx.fillRect(0, 0, W, H);
+        ctx.strokeStyle = v.accent; ctx.lineWidth = 5;
+        ctx.strokeRect(W * 0.07, H * 0.07, W * 0.86, H * 0.86);
+      });
+    }
+
+    function texLid(v) {
+      return makeTex((ctx, W, H) => {
+        ctx.fillStyle = '#f0ece0'; ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle = v.accent; ctx.fillRect(0, H * 0.80, W, H * 0.20);
+        if (logoImg) {
+          drawLogo(ctx, W * 0.15, H * 0.10, W * 0.7, H * 0.50);
+        } else {
+          ctx.fillStyle = v.dark; ctx.font = `bold ${W * 0.15}px Georgia,serif`;
+          ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(v.name, W / 2, H * 0.38);
+        }
+        ctx.strokeStyle = v.accent; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(W * 0.15, H * 0.62); ctx.lineTo(W * 0.85, H * 0.62); ctx.stroke();
+      });
+    }
+
+    function texCollar(v) {
+      return makeTex((ctx, W, H) => {
+        ctx.fillStyle = '#c8b87a'; ctx.fillRect(0, 0, W, H);
+        ctx.strokeStyle = 'rgba(160,140,80,0.55)'; ctx.lineWidth = 1;
+        for (let y = 0; y < H; y += 8) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+      });
+    }
+
+    const TEX_IDX = [0, 4, 5];
+
+    function buildTextures(vk) {
+      const v = VARIANTS[vk];
+      return [texFront(v), texSide(v), texBack(v), texTopBot(v), texLid(v), texCollar(v)];
+    }
+
+    // ══ RENDERER ═════════════════════════════════════════
+    const canvas = document.getElementById('c');
+    const R = new THREE.WebGLRenderer({ canvas, antialias: true });
+    R.setPixelRatio(Math.min(devicePixelRatio, 2));
+    R.setSize(innerWidth, innerHeight);
+    R.outputEncoding = THREE.sRGBEncoding;
+    R.toneMapping = THREE.ACESFilmicToneMapping;
+    R.toneMappingExposure = 1.35;
+    R.shadowMap.enabled = true;
+    R.shadowMap.type = THREE.PCFSoftShadowMap;
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0e0e0e);
+    scene.fog = new THREE.FogExp2(0x0e0e0e, 0.055);
+    const cam = new THREE.PerspectiveCamera(36, innerWidth / innerHeight, 0.001, 30);
+
+    const amb = new THREE.AmbientLight(0xfff5e0, 0.45); scene.add(amb);
+    const key = new THREE.DirectionalLight(0xfff0d0, 2.6);
+    key.position.set(0.3, 0.6, 0.5); key.castShadow = true;
+    key.shadow.mapSize.set(1024, 1024);
+    key.shadow.camera.near = 0.01; key.shadow.camera.far = 2;
+    key.shadow.camera.left = key.shadow.camera.bottom = -.2;
+    key.shadow.camera.right = key.shadow.camera.top = .2;
+    scene.add(key);
+    const fill = new THREE.DirectionalLight(0x9ac4e0, 0.8); fill.position.set(-.5, .1, -.4); scene.add(fill);
+    const rim = new THREE.DirectionalLight(0xc9a84c, 1.0); rim.position.set(0, -.4, -.5); scene.add(rim);
+    const pt = new THREE.PointLight(0xc9a84c, 1.5, 1.2); pt.position.set(.15, .12, .18); scene.add(pt);
+
+    const fMesh = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 1.5), new THREE.MeshStandardMaterial({ color: 0x0e0e0e, metalness: .1, roughness: .95, transparent: true, opacity: .5 }));
+    fMesh.rotation.x = -Math.PI / 2; fMesh.position.y = -.0002; fMesh.receiveShadow = true; scene.add(fMesh);
+
+    const pGeo = new THREE.BufferGeometry();
+    const pp = new Float32Array(250 * 3);
+    for (let i = 0; i < 250; i++) { pp[i * 3] = (Math.random() - .5) * .5; pp[i * 3 + 1] = (Math.random() - .5) * .45; pp[i * 3 + 2] = (Math.random() - .5) * .5; }
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pp, 3));
+    const pts = new THREE.Points(pGeo, new THREE.PointsMaterial({ color: 0xc9a84c, size: .0018, transparent: true, opacity: .35 }));
+    scene.add(pts);
+
+    // ══ STATE ════════════════════════════════════════════
+    let root = null, lidPivot = null, lidOpen = false, lidAngle = 0;
+    let autoRot = true, wireOn = false, explodeOn = false;
+    let meshes = [], mats = [];
+    let innerTopMesh = null;
+    const origPos = {};
+    let activeTex = buildTextures('red');
+
+    function rebuildMaterials() {
+      if (!mats.length) return;
+      const newTex = buildTextures(currentVariant);
+      mats.forEach((mat, mi) => { if (mat.map) mat.map.dispose(); mat.map = newTex[TEX_IDX[mi]]; mat.needsUpdate = true; });
+    }
+
+    function applyVariant(vk) {
+      if (!VARIANTS[vk] || !mats.length) return;
+      currentVariant = vk; rebuildMaterials();
+    }
+    window.addEventListener('message', e => { if (e.data && e.data.type === 'setVariant') applyVariant(e.data.variant); });
+
+    // ══ GLB LOAD ═════════════════════════════════════════
+    function parseGLB(buf) {
+      const dv = new DataView(buf);
+      const jLen = dv.getUint32(12, true);
+      const gltf = JSON.parse(new TextDecoder().decode(new Uint8Array(buf, 20, jLen)));
+      const bStart = 20 + jLen + 8;
+      const bLen = dv.getUint32(20 + jLen, true);
+      return { gltf, bin: buf.slice(bStart, bStart + bLen) };
+    }
+    function getAcc(gltf, bin, idx) {
+      const a = gltf.accessors[idx], bv = gltf.bufferViews[a.bufferView];
+      const off = (bv.byteOffset || 0) + (a.byteOffset || 0);
+      const C = { 5126: Float32Array, 5123: Uint16Array }[a.componentType];
+      const n = { SCALAR: 1, VEC2: 2, VEC3: 3 }[a.type];
+      return new C(bin, off, a.count * n);
+    }
+
+    // 15s timeout safety net
+    const LOAD_TIMEOUT = 15000;
+    let loadTimer = setTimeout(() => {
+      const loader = document.getElementById('loader');
+      if (loader && !loader.classList.contains('out')) {
+        loader.classList.add('out');
+        showError('Gagal memuat model. Refresh halaman.');
+      }
+    }, LOAD_TIMEOUT);
+
+    function showError(msg) {
+      const el = document.getElementById('load-error');
+      if (el) { el.textContent = msg; el.style.display = 'block'; }
+      // Unused UI elements removed
+    }
+
+    async function loadGLB() {
+      const bar = document.getElementById('progress-bar');
+      const pct = document.getElementById('load-pct');
+
+      const glbUrl = new URL('cigarette_box.glb', window.location.href).href;
+      console.log('[GLB] fetching:', glbUrl);
+
+      try {
+        const resp = await fetch(glbUrl);
+        if (!resp.ok) throw new Error('HTTP ' + resp.status + ': ' + resp.statusText);
+
+        const total = +resp.headers.get('content-length') || 0;
+        const reader = resp.body.getReader();
+        let received = 0; const chunks = [];
+
+        while (true) {
+          const { done, value } = await reader.read(); if (done) break;
+          chunks.push(value); received += value.length;
+          if (total > 0) {
+            const p = Math.round((received / total) * 80);
+            bar.style.width = p + '%'; pct.textContent = p + '%';
+          } else {
+            pct.textContent = Math.round(received / 1024) + 'KB';
+            bar.style.width = '50%';
+          }
+        }
+        bar.style.width = '85%'; pct.textContent = '85%';
+        const buf = await new Blob(chunks).arrayBuffer();
+        bar.style.width = '90%'; pct.textContent = '90%';
+        const { gltf, bin } = parseGLB(buf);
+        bar.style.width = '97%'; pct.textContent = '97%';
+
+        const materials = gltf.materials.map((m, mi) => {
+          const mat = new THREE.MeshStandardMaterial({
+            map: activeTex[TEX_IDX[mi]],
+            roughness: m.pbrMetallicRoughness.roughnessFactor,
+            metalness: m.pbrMetallicRoughness.metallicFactor,
+          });
+          mats.push(mat); return mat;
+        });
+
+        // ── STEP 1: Load ALL meshes into root normally (no pivot yet) ──
+        root = new THREE.Group();
+        let lidMeshRef = null;
+
+        gltf.nodes.forEach(node => {
+          const prim = gltf.meshes[node.mesh].primitives[0];
+          const posArr = getAcc(gltf, bin, prim.attributes.POSITION);
+          const nrmArr = getAcc(gltf, bin, prim.attributes.NORMAL);
+          const uvRaw = getAcc(gltf, bin, prim.attributes.TEXCOORD_0);
+          const idxArr = getAcc(gltf, bin, prim.indices);
+
+          // TEXTURE FIX: use uvRaw directly, NO manual UV flip
+          // flipY=true on CanvasTexture handles orientation
+          const geo = new THREE.BufferGeometry();
+          geo.setAttribute('position', new THREE.BufferAttribute(posArr, 3));
+          geo.setAttribute('normal', new THREE.BufferAttribute(nrmArr, 3));
+          geo.setAttribute('uv', new THREE.BufferAttribute(uvRaw, 2));
+          geo.setIndex(new THREE.BufferAttribute(idxArr, 1));
+          geo.computeBoundingBox();
+
+          const mesh = new THREE.Mesh(geo, materials[prim.material]);
+          mesh.castShadow = true; mesh.receiveShadow = true; mesh.name = node.name;
+
+          // Add ALL meshes to root including Lid
+          root.add(mesh);
+          meshes.push(mesh);
+          if (node.name === 'Lid') lidMeshRef = mesh;
+        });
+
+        // ── STEP 2: Center root FIRST before any pivot math ──
+        const box3 = new THREE.Box3().setFromObject(root);
+        const ctr = box3.getCenter(new THREE.Vector3());
+        root.position.set(-ctr.x, -box3.min.y, -ctr.z);
+        scene.add(root);
+
+        // ── STEP 3: Calculate lid pivot in ALREADY-CENTERED space ──
+        if (lidMeshRef) {
+          // Force world matrix update after moving root
+          root.updateWorldMatrix(true, true);
+
+          // Get lid bounding box AFTER centering
+          const lidBox = new THREE.Box3().setFromObject(lidMeshRef);
+
+          // Hinge point = bottom of lid, back edge
+          const hingeY = lidBox.min.y;
+          const hingeZ = lidBox.min.z;
+
+          // ── STEP 4: Create pivot at hinge position ──
+          lidPivot = new THREE.Group();
+          lidPivot.position.set(0, hingeY, hingeZ);
+
+          // ── STEP 5: Reparent lid from root into pivot ──
+          root.remove(lidMeshRef);
+
+          // Offset mesh relative to pivot
+          // Mesh was at world position; pivot is at hingeY/hingeZ in root local space
+          // We need mesh local-to-pivot offset
+          lidMeshRef.position.set(
+            lidMeshRef.position.x,
+            lidMeshRef.position.y - hingeY,
+            lidMeshRef.position.z - hingeZ
+          );
+
+          lidPivot.add(lidMeshRef);
+          root.add(lidPivot);
+
+          // Bug 1: scale lid slightly so it doesn't appear wider than body
+          // Dynamically scale lid to match body dimensions (simple factor for now)
+          lidPivot.scale.set(0.995, 1, 0.995);
+
+          // Bug 3A: cream interior face — visible from below when lid swings open
+          const li_W = lidBox.max.x - lidBox.min.x;
+          const li_D = lidBox.max.z - lidBox.min.z;
+          const li_H = lidBox.max.y - lidBox.min.y;
+          const lidIntMesh = new THREE.Mesh(
+            new THREE.PlaneGeometry(li_W * 0.993, li_D * 0.993),
+            new THREE.MeshStandardMaterial({ color: 0xf5f0e8, roughness: 0.9, metalness: 0, side: THREE.BackSide })
+          );
+          lidIntMesh.rotation.x = Math.PI / 2;
+          lidIntMesh.position.set(0, li_H / 2, li_D / 2);
+          lidPivot.add(lidIntMesh);
+
+          // Store for explode view
+          origPos['Lid_pivot'] = lidPivot.position.clone();
+
+          // Remove Lid from meshes array — handled via pivot
+          meshes = meshes.filter(m => m.name !== 'Lid');
+        }
+
+        // Bug 3B: Box interior — cigarette-tops texture, shown when lid is open
+        {
+          const bW = box3.max.x - box3.min.x;
+          const bD = box3.max.z - box3.min.z;
+          const bH = box3.max.y - box3.min.y;
+          const inTex = makeTex((ctx, W, H) => {
+            ctx.fillStyle = '#c8c0b0'; ctx.fillRect(0, 0, W, H);
+            const cols = 5, rows = 2, cw = W / cols, ch = H / rows;
+            for (let r = 0; r < rows; r++) {
+              for (let c = 0; c < cols; c++) {
+                const cx2 = cw * c + cw / 2, cy2 = ch * r + ch / 2;
+                const rad = Math.min(cw, ch) * 0.35;
+                ctx.beginPath(); ctx.arc(cx2, cy2, rad, 0, Math.PI * 2);
+                ctx.fillStyle = '#f5e6c8'; ctx.fill();
+                ctx.strokeStyle = '#d4c4a0'; ctx.lineWidth = 2; ctx.stroke();
+                ctx.beginPath(); ctx.arc(cx2, cy2, rad * 0.3, 0, Math.PI * 2);
+                ctx.fillStyle = '#e8d4a8'; ctx.fill();
+              }
+            }
+            ctx.fillStyle = 'rgba(200,192,176,0.8)'; ctx.fillRect(0, 0, W, H * 0.08);
+          }, 512, 256);
+          innerTopMesh = new THREE.Mesh(
+            new THREE.PlaneGeometry(bW - 0.003, bD - 0.003),
+            new THREE.MeshStandardMaterial({ map: inTex, roughness: 0.7, metalness: 0.1 })
+          );
+          innerTopMesh.rotation.x = -Math.PI / 2;
+          innerTopMesh.position.set(0, bH * 0.74, 0);
+          innerTopMesh.visible = false;
+          root.add(innerTopMesh);
+        }
+
+        // Store original positions for non-lid meshes
+        meshes.forEach(m => {
+          origPos[m.name] = m.position.clone();
+        });
+
+        // Done loading
+        clearTimeout(loadTimer);
+        bar.style.width = '100%'; pct.textContent = '100%';
+        setTimeout(() => document.getElementById('loader').classList.add('out'), 300);
+
+      } catch (err) {
+        clearTimeout(loadTimer);
+        console.error('[GLB] Load failed:', err);
+        showError('Gagal memuat model: ' + err.message);
+      }
+    }
+
+    loadGLB();
+
+    // ══ ORBIT ════════════════════════════════════════════
+    let drag = false, mx = 0, my = 0;
+    let th = -0.3, phi = 1.28, zm = 0.3;
+    let tTh = -0.3, tPhi = 1.28, tZm = 0.3;
+
+    canvas.addEventListener('mousedown', e => { drag = true; autoRot = false; document.getElementById('btnAuto').classList.remove('on'); mx = e.clientX; my = e.clientY; });
+    window.addEventListener('mouseup', () => drag = false);
+    window.addEventListener('mousemove', e => {
+      if (!drag) return;
+      tTh -= (e.clientX - mx) * .007; tPhi = Math.max(.12, Math.min(Math.PI - .08, tPhi + (e.clientY - my) * .007));
+      mx = e.clientX; my = e.clientY;
+    });
+    canvas.addEventListener('touchstart', e => {
+      e.preventDefault(); // stop parent page scroll
+      if (drawerOpen) { closeDrawer(); return; }
+      drag = true; autoRot = false;
+      mx = e.touches[0].clientX; my = e.touches[0].clientY;
+    }, { passive: false });
+    window.addEventListener('touchend', () => drag = false);
+    canvas.addEventListener('touchmove', e => {
+      e.preventDefault(); // stop parent page scroll while dragging
+      if (!drag || drawerOpen) return;
+      tTh -= (e.touches[0].clientX - mx) * .007; tPhi = Math.max(.12, Math.min(Math.PI - .08, tPhi + (e.touches[0].clientY - my) * .007));
+      mx = e.touches[0].clientX; my = e.touches[0].clientY;
+    }, { passive: false });
+    canvas.addEventListener('wheel', e => { e.preventDefault(); tZm = Math.max(.08, Math.min(.65, tZm + e.deltaY * .00025)); }, { passive: false });
+
+    // ══ CONTROLS ═════════════════════════════════════════
+    function syncBtn(d, m, state) {
+      const de = document.getElementById(d); const me = document.getElementById(m);
+      if (de) state ? de.classList.add('on') : de.classList.remove('on');
+      if (me) state ? me.classList.add('on') : me.classList.remove('on');
+    }
+    function resetCam() { tTh = -0.3; tPhi = 1.28; tZm = 0.3; autoRot = true; syncBtn('btnAuto', 'mBtnAuto', true); }
+    function toggleLid() { lidOpen = !lidOpen; syncBtn('btnLid', 'mBtnLid', lidOpen); }
+    function toggleAuto() { autoRot = !autoRot; syncBtn('btnAuto', 'mBtnAuto', autoRot); }
+    function toggleWire() { wireOn = !wireOn; mats.forEach(m => m.wireframe = wireOn); syncBtn('btnWire', 'mBtnWire', wireOn); }
+    function toggleExplode() { explodeOn = !explodeOn; syncBtn('btnExplode', 'mBtnExplode', explodeOn); }
+
+    // ══ ANIMATION LOOP ═══════════════════════════════════
+    const clock = new THREE.Clock();
+    function animate() {
+      requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+
+      if (autoRot) tTh += .004;
+      th += (tTh - th) * .06; phi += (tPhi - phi) * .06; zm += (tZm - zm) * .06;
+
+      cam.position.set(zm * Math.sin(phi) * Math.sin(th), zm * Math.cos(phi) + .042, zm * Math.sin(phi) * Math.cos(th));
+      cam.lookAt(0, .042, 0);
+      if (root) root.position.y = .001 + Math.sin(t * .75) * .002;
+
+      // ── STEP 6: Lid rotation — backward-upward around local X ──
+      if (lidPivot) {
+        const tgt = lidOpen ? -Math.PI * 0.82 : 0;
+        const lerpSpeed = Math.abs(tgt - lidAngle) > 0.5 ? 0.05 : 0.08;
+        lidAngle += (tgt - lidAngle) * lerpSpeed;
+        lidPivot.rotation.x = lidAngle;
+        if (innerTopMesh) innerTopMesh.visible = lidAngle < -0.1;
+      }
+
+      // Animate non-lid meshes (explode view)
+      if (root && meshes.length) {
+        meshes.forEach(m => {
+          const o = origPos[m.name] || new THREE.Vector3();
+          let tx = o.x, ty = o.y, tz = o.z;
+          if (explodeOn) { if (m.name === 'Body') ty -= 0.012; if (m.name === 'Collar') tz += 0.022; }
+          m.position.x += (tx - m.position.x) * .08;
+          m.position.y += (ty - m.position.y) * .08;
+          m.position.z += (tz - m.position.z) * .08;
+        });
+        // ── STEP 7: Explode view for lid — move the pivot, not the mesh ──
+        if (lidPivot) {
+          const op = origPos['Lid_pivot'];
+          if (op) {
+            const targetY = op.y + (explodeOn ? 0.03 : 0);
+            lidPivot.position.x += (op.x - lidPivot.position.x) * .08;
+            lidPivot.position.y += (targetY - lidPivot.position.y) * .08;
+            lidPivot.position.z += (op.z - lidPivot.position.z) * .08;
+          }
+        }
+      }
+
+      pt.position.x = Math.sin(t * .65) * .22;
+      pt.position.z = Math.cos(t * .65) * .22;
+      pts.rotation.y = t * .035;
+      R.render(scene, cam);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      cam.aspect = innerWidth / innerHeight;
+      cam.updateProjectionMatrix();
+      R.setSize(innerWidth, innerHeight);
+    });
+  </script>
+</body>
+
+</html>

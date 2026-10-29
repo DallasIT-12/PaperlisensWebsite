@@ -1,0 +1,434 @@
+{
+  "Common": {
+    "back": "Back",
+    "categoryNotFound": "Category Not Found",
+    "categoryNotFoundDesc": "Sorry, we could not find products for this category.",
+    "moreExamplesComing": "More examples for this category will be added soon.",
+    "relatedProducts": "Other Printed Products"
+  },
+  "Home": {
+    "mainH1": "Dallas Offset Printing Kediri - Custom Packaging & Box Specialist"
+  },
+  "Navbar": {
+    "home": "Home",
+    "products": "Custom Cigarette Box",
+    "produk_menu": "Products",
+    "catalog": "Catalog",
+    "paperlisens": "Paperlisens",
+    "articles": "Our Articles",
+    "contact": "Contact",
+    "about": "About Us",
+    "karir": "Career",
+    "perusahaan": "Company",
+    "faq": "FAQ"
+  },
+  "TopBar": {
+    "address": "Jl. Kilisuci No.71, Setono Pande, Kec. Kota, Kota Kediri."
+  },
+  "CompanyProfile": {
+    "title": "Getting to know us",
+    "description": "\"Dallas\" or often known as Dallas Offset Printing has become one of the largest printing companies in Kediri, East Java for more than 40 years since its establishment in 1983. For more than 40 years, Dallas has become the \"largest\" and a pioneer in the printing industry in Kediri. Being the \"largest\" is not just a claim but is proven by serving thousands of customers from various sectors, including MSMEs, CVs, PTs, and the Government. This also serves as a challenge for us to consistently maintain print quality that meets our customers' expectations."
+  },
+  "AboutUs": {
+    "title": "Modern Technology for Precise Results",
+    "description": "We use the latest machinery to ensure sharpness and color consistency on every sheet. Supported by expert operators, Dallas Printing is ready to handle your printing needs quickly, neatly, and efficiently.",
+    "visi": {
+      "title": "Our Vision",
+      "desc": "To become the largest printing company in Indonesia"
+    },
+    "misi": {
+      "title": "Our Mission",
+      "points": [
+        "Expanding distribution reach across Indonesia",
+        "Continuous innovation",
+        "Providing print quality that meets expectations",
+        "Building long-term relationships",
+        "Creating a safe, creative, and productive work environment"
+      ]
+    },
+    "produk": {
+      "title": "Our Portfolio",
+      "desc": "Dallas is committed to producing quality packaging to meet consumer needs. Our portfolio currently includes cigarette and non-cigarette categories.",
+      "rokok": {
+        "title": "Cigarette Category",
+        "desc": "We offer various custom products such as cigarette boxes, ambri, tipping, and tongues."
+      },
+      "nonRokok": {
+        "title": "Non-Cigarette Category",
+        "desc": "We offer a wide range of custom products including all types of boxes, folders, books, calendars, brochures, paper bags, and various food packaging."
+      }
+    }
+  },
+  "WhyChoose": {
+    "title": "Why Choose Dallas Offset Printing?",
+    "subtitle": "Dedication to Quality and Punctuality Since 1983.",
+    "points": {
+      "experience": {
+        "title": "4 Decades of Experience",
+        "desc": "Over 40 years of work gives us deep expertise to handle the various complexities of your printing projects, from small scale to mass production."
+      },
+      "quality": {
+        "title": "Precision Quality Standards",
+        "desc": "We combine the precision of experienced operators with the latest machine technology to ensure accurate colors, neat cuts, and consistent results."
+      },
+      "consultation": {
+        "title": "Solution-Oriented Consultation Partner",
+        "desc": "We are more than just printers. Our team is ready to provide expert advice on material selection, cost efficiency, to the best finishing for your product."
+      },
+      "punctuality": {
+        "title": "Punctuality Guarantee",
+        "desc": "Dallas guarantees the predetermined timeframe after the design is approved and the printing process continues according to the applicable procedures."
+      },
+      "discussion": {
+        "title": "Open for Discussion",
+        "desc": "Dallas is very open to exchanging ideas through discussions leading to mutual agreement. Discussing design, size, materials, to prices. We are very open, so consult immediately."
+      }
+    },
+    "cta": "Entrust your business image to the experts. Contact Dallas Offset Printing today for your project consultation."
+  },
+  "PremiumQuality": {
+    "title": "Premium Quality",
+    "titleSpan": "Products",
+    "description": "Discover our exceptional range of cigarette and non-cigarette products",
+    "btnDownload": "Download Catalog",
+    "btnNonCigarette": "Non-Cigarette Products"
+  },
+  "FeaturedProducts": {
+    "title": "Our Portfolio",
+    "subtitle": "Find various high-quality printing solutions for your business needs.",
+    "viewDetails": "View Full Details"
+  },
+  "Materials": {
+    "title": "SOME OF OUR FEATURED MATERIALS",
+    "artPaper": {
+      "name": "ART PAPER",
+      "desc": "This paper has a smooth and glossy surface, so the print results are sharp and brightly colored."
+    },
+    "ivoryPaper": {
+      "name": "IVORY PAPER",
+      "desc": "A type of glossy/doff packaging paper that combines art carton and matte paper, elegant yet strong."
+    },
+    "tipping": {
+      "name": "Tipping",
+      "desc": "Special tipping paper for cigarette filters, often used for branding with logo prints or lines."
+    },
+    "duplex": {
+      "name": "Duplex",
+      "desc": "Recycled cardboard paper layered with white liner, with one white side and one gray side."
+    },
+    "kraftPaper": {
+      "name": "Kraft Paper",
+      "desc": "Natural brown paper that is very strong, durable, and versatile. Produced from sulfate wood pulp processing, making it an eco-friendly choice with a classic and professional look."
+    }
+  },
+  "NonCigarette": {
+    "title": "Quality Packaging Solutions Since 2022",
+    "description": "Paperlisens understands that packaging is the face of your culinary brand. Since 2022, we have been dedicated to providing the best papertrays and takeaway boxes through easy and fast online services. The trust of thousands of customers in various marketplaces proves our commitment to helping your business look more professional.",
+    "productsTitle": "Our Portfolio",
+    "card1": {
+      "title": "Versatile & Trendy Cup Solutions",
+      "desc": "Not just a container, but a stage for your culinary delights. From Cup Toast for grilled bread to various cup variants (Type A, B, Sakura, and Ice) designed with precision. This aesthetic tray shape is perfect for serving various finger foods, fried foods, or contemporary snacks to make them look fuller, attractive, and certainly Instagramable."
+    },
+    "card2": {
+      "title": "Donut Boxes in Various Sizes",
+      "desc": "Whatever your selling portion needs, we have the box! Available from personal sizes (contents 1 & 2) to family or hamper sizes (contents 3 & 6). Designed with sturdy material to keep the donut shape perfect and beautiful until it reaches the customer's hands."
+    },
+    "galleryTitle": "Featured Products on Paperlisens",
+    "btnBuy": "Buy at Paperlisens",
+    "btnViewAll": "View All Products at Paperlisens"
+  },
+  "Categories": {
+    "hampers": {
+      "title": "Hampers Box",
+      "desc": "Premium printed packaging with precise details, stunning colors, and elegant finishing.",
+      "tags": {
+        "tag1": "Aesthetic",
+        "tag2": "Luxury"
+      }
+    },
+    "bakery": {
+      "title": "Bakery Box",
+      "desc": "Elegant and functional packaging to protect and beautify your bakery products.",
+      "tags": {
+        "tag1": "Elegant",
+        "tag2": "Food-Grade"
+      }
+    },
+    "rokok": {
+      "title": "Cigarette Box",
+      "desc": "Printed cigarette boxes with sharp graphic details and high-quality materials.",
+      "tags": {
+        "tag1": "Sharp",
+        "tag2": "Consistent"
+      }
+    },
+    "nasi": {
+      "title": "Rice Box",
+      "desc": "Practical and hygienic rice boxes for various events and catering needs.",
+      "tags": {
+        "tag1": "Practical",
+        "tag2": "Hygienic"
+      }
+    },
+    "buku": {
+      "title": "Books",
+      "desc": "Clear text, sharp images, strong binding for the best reading experience.",
+      "tags": {
+        "tag1": "Strong Binding"
+      }
+    },
+    "kalender": {
+      "title": "Calendar",
+      "desc": "Attractive design and best materials, functional promotional tool.",
+      "tags": {
+        "tag1": "Functional"
+      }
+    },
+    "paperbag": {
+      "title": "Paperbag",
+      "desc": "Strong, stylish paperbags that reflect brand identity.",
+      "tags": {
+        "tag1": "Premium",
+        "tag2": "Strong"
+      }
+    },
+    "map": {
+      "title": "Folder",
+      "desc": "Custom printed folders for office needs, seminars, or events. Professional and functional.",
+      "tags": {
+        "tag1": "Professional",
+        "tag2": "Functional"
+      }
+    },
+    "brosur": {
+      "title": "Brochure",
+      "desc": "Clear information, stunning images, and precise folding.",
+      "tags": {
+        "tag1": "Informative"
+      }
+    }
+  },
+  "Footer": {
+    "description": "Premium quality products for discerning customers.",
+    "products": "Products",
+    "catalog": "Catalog",
+    "paperlisens": "Paperlisens",
+    "contact": "Contact",
+    "email": "Email",
+    "phone": "Phone",
+    "karir": "Career",
+    "copyright": "© 2024 Percetakan Dallas. All rights reserved."
+  },
+  "Paperlisens": {
+    "loading": "Loading...",
+    "backToDallas": "Back to Dallas",
+    "searchPlaceholder": "Search products in Paperlisens...",
+    "searchInCategory": "Search in {category}...",
+    "ourCategories": "OUR CATEGORIES",
+    "recommendation": "RECOMMENDATION",
+    "searchResults": "SEARCH RESULTS",
+    "loadMore": "Load More",
+    "galleryTitle": "OTHER PRODUCT GALLERY",
+    "productNotFound": "Product not found.",
+    "filter": "Filter",
+    "priceRange": "Price Range",
+    "minPrice": "Min",
+    "maxPrice": "Max",
+    "apply": "APPLY",
+    "sortBy": "Sort By",
+    "bestSeller": "Best Seller",
+    "priceLowHigh": "Price: Low to High",
+    "priceHighLow": "Price: High to Low",
+    "home": "Home",
+    "category": "Category",
+    "product": "Product",
+    "noProductsFound": "No products found with these criteria.",
+    "rating": "Rating",
+    "sold": "Sold",
+    "selectVariant": "Select Variant:",
+    "quantity": "Quantity",
+    "available": "{count} pieces available",
+    "addToCart": "Add to Cart",
+    "orderNow": "Order Now",
+    "relatedProducts": "OTHER PRODUCTS FROM THIS SHOP",
+    "youMayAlsoLike": "YOU MIGHT ALSO LIKE",
+    "deskripsi": "Description",
+    "description": "Description",
+    "info": "Info",
+    "review": "Review",
+    "pengiriman": "Shipping",
+    "shipping": "Shipping",
+    "weight": "Weight",
+    "etalase": "Storefront",
+    "productNotFoundDetail": "Product not found",
+    "returnToShop": "Return to Shop",
+    "categories": {
+      "paperTray": "Paper Tray",
+      "boxTakeAway": "Takeaway Box",
+      "tempatPensil": "Pencil Case",
+      "boxCupcake": "Cupcake Box",
+      "lainLain": "Others",
+      "kartonGelombang": "Corrugated Cardboard"
+    },
+    "shippingInfo": {
+      "from": "Shipping from Kediri City.",
+      "couriers": "Available couriers: JNE, J&T, SiCepat.",
+      "deadline": "Orders before 14.00 PM are shipped on the same day."
+    },
+    "reviewsCount": "from {count} reviews",
+    "dummyReview": "Great product, matches description. Fast shipping.",
+    "storefrontPremium": "Paperlisens Premium",
+    "featuredTag": "Featured",
+    "orderWa": "Order via WA"
+  },
+  "Maintenance": {
+    "title": "Under Maintenance",
+    "description": "We are currently updating our system to provide you with a better experience. We will be back shortly.",
+    "estimatedTime": "Estimated Completion Time:",
+    "hours": "Hours",
+    "contactWa": "Contact via WhatsApp",
+    "refresh": "Try Refresh"
+  },
+  "Promo": {
+    "title": "Special MSME Promo!",
+    "subtitle": "Realize Your Dream Packaging Now",
+    "description": "Get exclusive offers for <strong>Custom Packaging Starter Packs</strong> at affordable prices.",
+    "point1": "Free Design Consultation",
+    "point2": "Low MOQ (Suitable for MSMEs)",
+    "point3": "Premium Quality & Durable",
+    "cta": "Get Promo Now",
+    "later": "Maybe Later",
+    "whatsappMessage": "Hello, I am interested in the Custom Packaging Starter Pack Promo for MSMEs"
+  },
+  "CustomBoxProducts": {
+    "pageTitle": "Custom Cigarette Box",
+    "pageSubtitle": "Custom cigarette box printing services with various premium finishing options",
+    "filterAll": "All",
+    "filterPremium": "Premium",
+    "filterStandard": "Standard",
+    "filterGeneral": "General",
+    "finishing": "Finishing",
+    "category": "Category",
+    "service": "Service",
+    "special": "Description",
+    "minOrder": "Min. Order",
+    "chatWhatsApp": "Chat WhatsApp for Price Info",
+    "whatsappMessage": "Hello, I am interested in {productName}. Can you share the price?",
+    "products": {
+      "premiumFull": {
+        "name": "Premium Box - Emboss + Hotprint + Spot UV",
+        "description": "Premium packaging with 3 finishing types: emboss for raised effect, metallic foil hotprint, and spot UV for glossy shine on specific areas."
+      },
+      "premiumEmbossHotprint": {
+        "name": "Premium Box - Emboss + Hotprint",
+        "description": "Premium packaging with 2 finishing types: emboss for raised effect and metallic foil hotprint for gold/silver shine."
+      },
+      "premiumHotprintSpotUV": {
+        "name": "Premium Box - Hotprint + Spot UV",
+        "description": "Premium packaging with 2 finishing types: metallic foil hotprint and spot UV for glossy contrast effect on logos."
+      },
+      "standardEmboss": {
+        "name": "Standard Box - Finishing Emboss",
+        "description": "Standard packaging with emboss finishing, making logos and designs appear raised for an elegant impression."
+      },
+      "standardHotprint": {
+        "name": "Standard Box - Finishing Hotprint",
+        "description": "Standard packaging with hotprint finishing, producing metallic foil shine effects on logos and text."
+      },
+      "standardSpotUV": {
+        "name": "Standard Box - Finishing Spot UV",
+        "description": "Standard packaging with spot UV finishing, applying a glossy layer on specific areas like logos."
+      },
+      "standardUV": {
+        "name": "Standard Box - Finishing UV",
+        "description": "Standard packaging with UV coating evenly across the surface, making colors brighter and scratch-resistant."
+      },
+      "generalBox": {
+        "name": "General Box - No Finishing",
+        "description": "Standard cigarette box packaging without additional finishing. Suitable for basic packaging needs at an affordable price."
+      }
+    }
+  },
+  "Pricing": {
+    "title": "Minimal Price,",
+    "titleSpan": "Maximum Quality",
+    "subtitle": "Professional printing solutions with cost efficiency to support your business acceleration.",
+    "startFrom": "Starts from",
+    "perPcs": "/pcs",
+    "consultation": "Consult & Order Now",
+    "whatsappMessage": "Hello, I am interested in consulting and ordering {productName}",
+    "cards": {
+      "packaging": {
+        "title": "Custom Box & Packaging",
+        "price": "Rp 200",
+        "desc": "Cigarette boxes, hampers, and product packaging with high-quality materials."
+      },
+      "culinary": {
+        "title": "Culinary Packaging",
+        "price": "Rp 300",
+        "desc": "Paper trays, donut boxes, and hygienic food-grade takeaway boxes."
+      },
+      "publications": {
+        "title": "Books & Publications",
+        "price": "Wholesale Price",
+        "desc": "Book printing, catalogs, and calendars with strong binding & precise results."
+      }
+    }
+  },
+  "TrustedBy": {
+    "title": "Trusted by Leading Brands"
+  },
+  "Career": {
+    "title": "Join Our Team",
+    "subtitle": "Build your career with Dallas Offset Printing and become a part of our journey.",
+    "whyJoin": "Why Join Dallas?",
+    "benefits": {
+      "growth": {
+        "title": "Career Growth",
+        "desc": "We support your professional growth by providing opportunities to learn and develop every day."
+      },
+      "culture": {
+        "title": "Positive Work Culture",
+        "desc": "Our work environment is designed to be collaborative, supportive, and appreciative of creative ideas."
+      },
+      "stability": {
+        "title": "Stability & Reputation",
+        "desc": "Join a company that has stood strong since 1983 with an excellent reputation in Kediri."
+      }
+    },
+    "openPositions": "Open Positions",
+    "noPositions": "We are always looking for top talent! Feel free to send your CV even if your desired position is not listed above.",
+    "jobs": {
+      "hostLive": {
+        "title": "Live Stream Host",
+        "type": "Full-Time",
+        "desc": "Become the face of the company brand in live streaming sessions, promote products, and actively interact with the audience to increase sales."
+      },
+      "bongkarMuat": {
+        "title": "Loading & Unloading Staff",
+        "type": "Full-Time",
+        "desc": "Responsible for the loading and unloading process of production goods, ensuring goods safety, neat arrangement in the warehouse, and logistics efficiency."
+      }
+    },
+    "applyNow": "Submit Your CV",
+    "sendEmail": "Apply Now",
+    "sendWa": "Send via WhatsApp",
+    "whatsappMessage": "Hello Dallas Printing HR Team, I would like to submit my CV to apply for the position of ",
+    "formModal": {
+      "title": "Application Form",
+      "name": "Full Name",
+      "namePlaceholder": "e.g., John Doe",
+      "phone": "WhatsApp Number",
+      "phonePlaceholder": "e.g., +628123456789",
+      "address": "Full Address",
+      "addressPlaceholder": "Enter your full address...",
+      "age": "Age",
+      "agePlaceholder": "e.g., 25",
+      "education": "Last Education",
+      "educationPlaceholder": "e.g., High School / Bachelor's Degree",
+      "waNotice": "Please ensure the WhatsApp number you provide is ACTIVE. Interview invitations for selected candidates will be sent via WhatsApp.",
+      "submit": "Apply Now",
+      "cancel": "Cancel"
+    }
+  }
+}
